@@ -1,0 +1,175 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Local Variables and Mixins --------------------- //
+// ------------------------------------------------------ //
+
+
+
+// ------------------------------------------------------ //
+// ----- Sortable Table  -------------------------------- //
+// ------------------------------------------------------ //
+
+.sortable-table {
+  $minimum-height: $secondary-line-height * 2;
+  $toggle-padding: 0.2rem;
+  $toggle-width: 1rem + (2 * $toggle-padding);
+
+  width: 100%;
+
+  .media-icon {
+    width: 6rem;
+  }
+
+  .media-content {
+    width: 22rem;
+  }
+
+  .media-channel {
+    min-width: 5rem;
+    text-align: center;
+  }
+
+  .metric {
+    width: auto;
+    text-align: right;
+
+    // Overrides for specific metric labels
+    &.conversions {
+      width: 12rem;
+    }
+    &.conversionValue {
+      width: 14rem;
+    }
+  }
+
+  thead {
+    th {
+      padding: $spacing-small $spacing-small;
+      min-height: $minimum-height + (2 * $spacing-small);
+    }
+
+    .label {
+      display: inline-block;
+      min-width: 4rem;
+    }
+    .metric {
+      white-space: nowrap;
+      text-align: right;
+      cursor: pointer;
+
+      .sort-toggle {
+        display: inline-block;
+        min-width: $toggle-width;
+        padding: $toggle-padding;
+
+        .fa-sort-asc {
+          position: relative;
+          top: 0.3rem;
+        }
+        .fa-sort-desc {
+          position: relative;
+          bottom: 0.3rem;
+        }
+      }
+
+      &:hover {
+        color: $link-color-hover;
+        background-color: mix($base-neutral-verylight, $base-neutral-light-accent, 60%);
+      }
+
+      &.is-active {
+        background-color: mix($base-neutral-verylight, $base-neutral-light-accent, 20%);
+        color: $state-active;
+
+        &:hover {
+          color: darken($state-active, 5%);
+        }
+      }
+    }
+  }
+
+  tbody {
+    .media-icon {
+      .icon-ctn {
+        .icon {
+          width: 4rem;
+          height: 4rem;
+          border-radius: $box-radius-small;
+        }
+      }
+    }
+
+    .media-content {
+      .content-ctn {
+        position: relative;
+        width: auto;
+        height: $minimum-height;
+        line-height: $secondary-line-height;
+        font-size: $secondary-font-size;
+
+        .content {
+          display: inline-block;
+          height: $secondary-line-height * 2;
+          width: 20rem;
+          overflow: hidden;
+          word-wrap: break-word;
+
+          &.is-not-avail {
+            padding-top: $secondary-line-height / 2;
+          }
+
+          &:hover:not(.is-not-avail) {
+            z-index: 1;
+            position: absolute;
+            top: -$spacing-small;
+            left: -$spacing-small;
+            padding: $spacing-small;
+            height: auto;
+            width: 24rem;
+            background-color: #ffffff;
+            border: 0.1rem solid $base-line-color;
+            border-radius: $box-radius-small;
+            box-shadow: $base-box-shadow;
+          }
+        }
+      }
+    }
+
+    .media-channel {
+      .channel-icon {
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        font-size: 3rem;
+        line-height: 4rem;
+        vertical-align: middle;
+
+        &.facebook {
+          color: $facebook-color;
+        }
+        &.twitter {
+          color: $twitter-color;
+        }
+      }
+    }
+
+    .metric {
+      text-align: right;
+      padding-right: $toggle-width + $spacing-small + 0.4rem; // align with toggle
+
+      &.is-active {
+        background-color: mix($base-bg-color, $base-neutral-light-accent);
+      }
+    }
+  }
+}
+
+.no-ads-data {
+  padding: 4rem;
+  text-align: center;
+}

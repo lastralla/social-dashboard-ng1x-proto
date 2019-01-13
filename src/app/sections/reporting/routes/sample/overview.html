@@ -1,0 +1,190 @@
+<h1 translate="Overview"></h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig"
+                  report-type="overview">
+
+  <header-slot>
+    <!-- ========== Full-width ========== -->
+    <!-- <div class="report-overview-layout">
+
+      <div class="report-overview-zone">
+        <div class="report-facebook-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Facebook Only Content</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Facebook specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-special-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Insights</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some overview information
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-twitter-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Twitter Specific</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Twitter specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
+    <!-- ========== Equal columns ========== -->
+    <!-- <div class="report-overview-layout even-distribution">
+
+     <div class="report-overview-zone">
+        <div class="report-ga-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Google Analytics</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some GA specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-twitter-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Twitter Specific</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Twitter specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-facebook-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Facebook Only Content</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Facebook specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-special-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Insights</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some overview information
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone">
+        <div class="report-twitter-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Twitter Specific</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Twitter specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
+    <!-- ========== Wide and narrow columns ========== -->
+    <!-- <div class="report-overview-layout primary-secondary">
+
+      <div class="report-overview-zone primary-zone">
+        <div class="report-special-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Insights</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some overview information
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone secondary-zone">
+        <div class="report-facebook-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Facebook Only Content</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Facebook specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="report-overview-zone primary-zone">
+        <div class="report-ga-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Google Analytics</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some GA specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-overview-zone secondary-zone">
+        <div class="report-twitter-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Twitter Specific</h2>
+            </div>
+            <div class="visualisation-layout">
+              Some Twitter specific visualization here
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+  </header-slot>
+
+  <main-slot>
+    <div class="report-panel-title">
+      <h2 translate="i18n.reporting.titles.bestAds"></h2>
+    </div>
+    <div class="report-section-table-panel">
+      <sd-chart model="$ctrl.views['main'].charts['chart1main']"></sd-chart>
+    </div>
+  </main-slot>
+
+</sd-report-layout>
+

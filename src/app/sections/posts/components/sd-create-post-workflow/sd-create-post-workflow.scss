@@ -1,0 +1,48 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Post Create Page ------------------------------- //
+// ------------------------------------------------------ //
+
+.create-post-workflow-ctn {
+
+  .create-post-workflow-step-ctn {}
+}
+
+.create-post-workflow-step-ctn {
+  border: 0.1rem solid #eeeeee;
+  margin: $spacing-large 0;
+
+  &.is-active {
+    border: 0.1rem solid #224466;
+  }
+}
+
+.create-post-workflow-step {
+  display: none;
+  padding: $spacing-small 0;
+
+  .is-active & {
+    display: block;
+  }
+
+  .channel-forms-ctn {
+    display: flex;
+  }
+}
+
+.channel-forms-ctn {
+
+  .channel-add-ctn {
+
+    flex: 1;
+    padding: $spacing-small;
+
+    &.facebook,
+    &.twitter {}
+  }
+}

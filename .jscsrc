@@ -1,0 +1,65 @@
+{
+  "preset": "google",
+  "validateIndentation": 2,
+  "maximumLineLength": {
+    "value": 90,
+    "tabSize": 2,
+    "allowComments": true,
+    "allowUrlComments": true,
+    "allowRegex": true
+  },
+  "disallowMultipleLineBreaks": true,
+  "disallowSpaceAfterObjectKeys": true,
+  "requireSpaceAfterLineComment": {
+    "allExcept": [
+      "#",
+      "=",
+      "////////"
+    ]
+  },
+  "requireSpaceAfterKeywords": [
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "switch",
+    "case",
+    "return",
+    "try",
+    "catch",
+    "typeof"
+  ],
+  "disallowSpaceAfterPrefixUnaryOperators": true,
+  "disallowSpaceBeforeBinaryOperators": [
+    ",",
+    ":"
+  ],
+  "disallowSpacesInsideParentheses": true,
+  "disallowNewlineBeforeBlockStatements": true,
+  "requireParenthesesAroundIIFE": true,
+  "jsDoc": {
+    "checkAnnotations": {
+      "preset": "jsdoc3",
+      "extra": {
+          "ngdoc": true,
+          "restrict": true
+      }
+    },
+    "checkParamNames": true,
+    "requireParamTypes": true,
+    "checkRedundantParams": true,
+    "checkReturnTypes": true,
+    "checkRedundantReturns": true,
+    "checkTypes": true
+
+  },
+  "excludeFiles": [
+    ".tmp/**",
+    "build/**",
+    "dev_home/**",
+    "libs/**",
+    "node_module/**"
+  ],
+  "requireCamelCaseOrUpperCaseIdentifiers": null
+}

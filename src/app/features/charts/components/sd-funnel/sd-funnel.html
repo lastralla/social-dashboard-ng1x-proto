@@ -1,0 +1,88 @@
+<div class="funnel-ctn">
+  <!-- oh ya! this is a lazy ass hack -->
+  <!-- <div class="columns">
+    <div class="col labels">
+      <div class="row header">&nbsp;</div>
+    </div>
+    <div class="col period comp-period">
+      <div class="row header period-label">P1</div>
+    </div>
+    <div class="col period sel-period">
+      <div class="row header period-label">P0</div>
+    </div>
+  </div> -->
+  <div class="columns">
+    <div class="col labels">
+      <div class="row header">&nbsp;</div>
+      <div class="row" ng-repeat="item in $ctrl.funnelData">{{item.label}}</div>
+    </div>
+    <div class="col period comp-period">
+      <div class="channel">
+        <div class="facebook"
+             ng-class="{
+              'is-disabled': !$ctrl.hasFacebook
+             }">
+          <div class="row header">Facebook</div>
+          <div class="row"
+               ng-repeat="item in $ctrl.funnelData"
+               ng-if="$ctrl.hasFacebook">
+            <div class="box"
+                 ng-class="$ctrl.getValueScale({{item.data.facebook[1]}}, 1)">
+              <span class="value">{{item.data.facebook[1] | number}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="channel">
+        <div class="twitter"
+             ng-class="{
+              'is-disabled': !$ctrl.hasTwitter
+             }">
+          <div class="row header">Twitter</div>
+          <div class="row"
+               ng-repeat="item in $ctrl.funnelData"
+               ng-if="$ctrl.hasTwitter">
+            <div class="box"
+                 ng-class="$ctrl.getValueScale({{item.data.twitter[1]}}, 1)">
+              <span class="value">{{item.data.twitter[1] | number}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col period sel-period">
+      <div class="channel">
+        <div class="facebook"
+             ng-class="{
+              'is-disabled': !$ctrl.hasFacebook
+             }">
+          <div class="row header">Facebook</div>
+          <div class="row"
+               ng-repeat="item in $ctrl.funnelData"
+               ng-if="$ctrl.hasFacebook">
+            <div class="box"
+                 ng-class="$ctrl.getValueScale({{item.data.facebook[0]}}, 0)">
+              <span class="value">{{item.data.facebook[0] | number}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="channel">
+        <div class="twitter"
+             ng-class="{
+              'is-disabled': !$ctrl.hasTwitter
+             }">
+          <div class="row header">Twitter</div>
+          <div class="row"
+               ng-repeat="item in $ctrl.funnelData"
+               ng-if="$ctrl.hasTwitter">
+            <div class="box"
+                 ng-class="$ctrl.getValueScale({{item.data.twitter[0]}}, 0)">
+              <span class="value">{{item.data.twitter[0] | number}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

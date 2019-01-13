@@ -1,0 +1,49 @@
+<h1 translate="i18n.reporting.titles.adConversions"></h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>Conversions Funnel</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversionFunnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversionFunnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['conversionFunnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversionFunnel'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ad Conversions Value</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['main'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['main'].charts['bars']"
+                  metric="conversionValue"></sd-chart>
+        <sd-chart model="$ctrl.views['main'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['main'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ad Conversions</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversionDetails'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversionDetails'].charts['bars']"
+                  metric="conversionVolume"></sd-chart>
+        <sd-chart model="$ctrl.views['conversionDetails'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversionDetails'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

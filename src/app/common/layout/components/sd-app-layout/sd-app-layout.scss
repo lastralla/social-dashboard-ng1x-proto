@@ -1,0 +1,135 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- App Layout ------------------------------------- //
+// ------------------------------------------------------ //
+
+.app-layout-ctn {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .main-content-ctn {}
+
+  .app-header {
+    flex: 0 0 auto;
+    z-index: $base-z-index + 1;
+  }
+
+  .main-content-ctn {
+    flex: 1 1 auto;
+    z-index: $base-z-index;
+  }
+}
+
+// --------------- Top Bar --------------- //
+.app-header {
+  background: $base-bg-color;
+  border-bottom: 0.1rem solid $base-line-color-dark;
+  box-shadow: $base-box-shadow;
+
+  .top-bar-ctn,
+  .top-level-nav-ctn {}
+}
+
+// ----- Branding and Profile Actions ----- //
+.top-bar-ctn {
+  display: flex;
+  padding: $spacing-tiny $spacing-normal $spacing-small $spacing-small;
+
+  .branding-ctn,
+  .profile-nav-ctn {}
+
+  .branding-ctn {
+    flex: 1 1 auto;
+  }
+
+  .profile-nav-ctn {
+    flex: 0 0 grid-dimension(4, $grid-column-width, $grid-gutter-width);
+    overflow: hidden;
+    padding: $spacing-small 0 0;
+    text-align: right;
+  }
+}
+
+
+// ----- Main Navigation ----- //
+.top-level-nav-ctn {
+  .app-main-nav-ctn {
+    flex: auto;
+  }
+}
+
+// --------------- Main Content ---------- //
+.main-content-ctn {
+  display: flex;
+
+  .second-level-nav-ctn {
+    flex: 0 0 grid-dimension(3, $grid-column-width, $grid-gutter-width);
+    z-index: $base-z-index + 1;
+  }
+
+  .content-area-ctn {
+    flex: 1 1 auto;
+  }
+}
+
+// ----- Sub Navigation ----- //
+.second-level-nav-ctn {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $base-neutral-verylight;
+  border-right: 0.1rem solid $base-line-color;
+  box-shadow: $base-box-shadow;
+
+  padding: $spacing-normal;
+
+  // Line up headings with page title (H1)
+  @include heading-spacing-adjuster($spacing-normal - ($h1-margin-top - $h2-margin-top));
+  > h2 {
+    line-height: $h1-line-height;
+  }
+}
+
+// ----- Content ----- //
+.content-area-ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: $base-neutral-light-accent;
+
+  .content-ctn,
+  .content-footer-ctn {
+    width: grid-dimension(12, $grid-column-width, $grid-gutter-width);
+    margin: 0 ($grid-gutter-width / 2);
+
+    // TODO revisit layout breakpoints
+    // large desktop
+    // @media screen
+    //   and (min-width: 1025px) {
+    //     max-width: 90.0rem;
+    //   }
+  }
+
+  .content-ctn {
+    flex: 1;
+
+    h1:first-of-type {
+      width: grid-dimension(8, $grid-column-width, $grid-gutter-width);
+    }
+  }
+
+  .content-footer-ctn {
+    @extend %secondary-font;
+    margin-top: $spacing-small;
+    padding: $spacing-small  $spacing-normal;
+
+    text-align: right;
+    min-height: $secondary-line-height + ($spacing-small * 2);
+  }
+}

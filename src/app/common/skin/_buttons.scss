@@ -1,0 +1,119 @@
+.btn-bar {
+  display: flex;
+
+  a.btn,
+  button {
+    flex: 0;
+  }
+}
+
+$button-vertical-padding: $spacing-tiny - $base-border-width;
+
+a.btn,
+button {
+  display: inline-block;
+  padding: $button-vertical-padding $spacing-small;
+  line-height: $base-line-height;
+
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: 500;
+
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  text-decoration: none;
+  color: #ffffff;
+  background-color: $action-color;
+
+  border: 0.1rem solid  $action-color-darker;
+  border-radius: $box-radius-small;
+
+  &:hover,
+  &:focus {
+    background-color: mix($action-color, $action-color-darker);
+    outline: 0;
+  }
+
+  &:active {
+    background-color: $action-color-darker;
+    outline: 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  & + a.btn,
+  & + button {
+    margin-left: $spacing-small;
+  }
+
+  &.is-active {
+    color: #ffffff;
+    background-color: $action-color-darker;
+    border-color: $action-color;
+  }
+
+  &.primary-action {
+    padding: $button-vertical-padding $spacing-large;
+  }
+
+  &.secondary-action {
+    background-color: lighten(desaturate($action-color, 100%), 10%);
+    border: 0.1rem solid  lighten(desaturate($action-color, 100%), 4%);
+
+    &:hover,
+    &:focus {
+      background-color: lighten(desaturate($action-color, 100%), 7%);
+      outline: 0;
+    }
+
+    &:active {
+      background-color: lighten(desaturate($action-color, 100%), 4%);
+      outline: 0;
+    }
+  }
+
+  &.special-action {
+    color: $link-color;
+    background-color: #ffffff;
+    border: 0.1rem solid $base-line-color-dark;
+
+    &:hover,
+    &:focus {
+      color: $link-color-hover;
+      background-color: mix($base-neutral-verylight, #ffffff);
+      border-color: mix($base-line-color-dark, $action-color, 85%);
+      outline: 0;
+    }
+
+    &.is-active {
+      color: #ffffff;
+      background-color: $action-color-darker;
+      border-color: $action-color-darker;
+    }
+
+  }
+}
+
+
+.icon-nav {
+  $icon-dimension: $base-line-height * 2;
+
+  display: inline-block;
+  width: $icon-dimension;
+  height: $icon-dimension;
+  line-height: $icon-dimension;
+  vertical-align: middle;
+  font-size: $base-font-size * $scale-factor;
+  text-align: center;
+  border-radius: $box-radius-small;
+  cursor: pointer;
+}
+
+

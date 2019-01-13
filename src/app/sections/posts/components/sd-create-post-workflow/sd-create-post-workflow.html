@@ -1,0 +1,165 @@
+<div class="create-post-workflow-ctn">
+
+<form name="wf.postform">
+  <!--button ng-click="wf.enableSchedulingStep()">
+    Start
+  </button-->
+
+  <div class="create-post-workflow-step-ctn"
+       ng-class="{
+         'is-active': wf.uiState.steps.schedulingStep.active
+       }">
+
+    <header>(1) Select Date</header>
+    <div class="create-post-workflow-step">
+
+      <div ng-form name="dateForm">
+        <label>Date:</label>
+        <input type="date"
+               name="date"
+               ng-model="date">
+
+        <label>Time:</label>
+        <input type="time"
+               name="time"
+               ng-model="time">
+      </div>
+
+      <label>Event:</label>
+      <input type="text"
+             ng-model="vm.event">
+
+      <button ng-click="wf.enableCreatePostStep()">
+        Go to step 2
+      </button>
+    </div>
+
+  </div>
+
+  <div class="create-post-workflow-step-ctn"
+       ng-class="{
+         'is-active': wf.uiState.steps.createPostStep.active
+       }">
+
+    <header>(2) Prepare Post</header>
+    <div class="create-post-workflow-step">
+      <div class="channel-forms-ctn">
+        <div class="channel-add-ctn facebook">
+          <div class="icon-add"
+               ng-click="wf.addSocialMediaChannel('facebook', wf.postform.facebookForm)"
+               ng-show="!wf.uiState.channels.facebook.postTo">
+            Add Facebook
+          </div>
+
+          <div class="channel-form"
+               ng-show="wf.uiState.channels.facebook.postTo">
+            <a ng-click="wf.removeSocialMediaChannel('facebook', wf.postform.facebookForm)">[Remove]</a>
+
+            <div ng-form name="facebookForm">
+              <label>Facebook</label>
+              <textarea type="text"
+                        name="facebookBody"
+                        ng-model="facebookBody"></textarea>
+            </div>
+
+          </div>
+        </div>
+        <div class="channel-add-ctn twitter">
+          <div class="icon-add"
+               ng-click="wf.addSocialMediaChannel('twitter', wf.postform.twitterForm)"
+               ng-show="!wf.uiState.channels.twitter.postTo">
+            Add Twitter
+          </div>
+
+          <div class="channel-form"
+               ng-show="wf.uiState.channels.twitter.postTo">
+            <a ng-click="wf.removeSocialMediaChannel('twitter', wf.postform.twitterForm)">[Remove]</a>
+
+            <div ng-form name="twitterForm">
+              <label>Twitter</label>
+              <textarea type="text"
+                        name="twitterBody"
+                        ng-model="twitterBody"></textarea>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <div class="content-layout-ctn split-layout">
+        <div class="layout-content-ctn post-form-ctn">
+
+          <div ng-form name="taxonomyForm">
+            <label>Categories</label>
+            <select ng-model="vm.post.postCategory"
+                    ng-options="item.value as item.name for item in vm.postCategories">
+              <option value="">Choose category</option>
+            </select>
+
+            <label>Keywords: (separated by comma)</label>
+            <input type="text"
+                   ng-model="vm.keywordsString"
+                   ng-blur="vm.splitKeywords()">
+
+            <label>Media (URL)</label>
+            <input type="text"
+                   ng-model="vm.post.content.media">
+          </div>
+        </div>
+
+        <div class="layout-content-ctn post-form-ctn">
+          <label>Post Type:</label>
+          <select ng-model="vm.post.postType"
+                  ng-options="item.value as item.name for item in vm.postTypes">
+            <option value="">Choose type</option>
+          </select>
+        </div>
+
+        <div class="layout-content-ctn post-form-ctn">
+          <div class="button-bar">
+            <button ng-click="vm.submitPost()">
+              Create
+            </button>
+            <!--button ng-click="vm.submitPost()"
+                    ng-disabled="!vm.createFlow.isPostable">
+              Create
+            </button-->
+            <!--a ng-click="vm.reset()">Reset</a-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</form>
+
+
+<hr>
+<style>
+  .vm {
+    display: flex;
+  }
+  .vm-form,
+  .vm-post {
+    flex: 1;
+  }
+</style>
+<hr>
+<div class="vm">
+  <div class="vm-form">
+    <h2>VM postform</h2>
+    <pre>{{ wf.postform | json }}</pre>
+  </div>
+  <div class="vm-post">
+    <h2>VM post</h2>
+    <pre>{{ vm.post | json }}</pre>
+  </div>
+
+</div>
+  <hr>
+  <pre>{{ wf | json:2 }}</pre>
+
+</div>

@@ -1,0 +1,69 @@
+<!-- TODO get error message to work -->
+<!-- <div class="pageMessagesCtn has-error"
+     ng-show="login.loginAttempted">
+  <ul>
+    <li translate="i18n.errors.{{login.error.message}}"></li>
+  </ul>
+</div> -->
+
+<form name="login.form"
+      ng-submit="login.doFormLogin(login.form)"
+      novalidate>
+
+  <div ng-class="{
+         'has-error': (login.form.email.$error.required || login.form.email.$error.email)
+                       && login.form.email.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.email"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="email"
+           name="email"
+           ng-model="email"
+           ng-model-options="{updateOn: 'blur'}"
+           required>
+      <ul class="error"
+           ng-messages="login.form.email.$error"
+           ng-show="login.form.email.$touched">
+        <li ng-message="required"
+            translate="i18n.access.validations.required.email"></li>
+        <li ng-message="email"
+            translate="i18n.access.validations.valid.email"></li>
+      </ul>
+  </div>
+
+  <div ng-class="{
+         'has-error': login.form.password.$error.required && login.form.password.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.password"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="password"
+           name="password"
+           ng-model="password"
+           ng-model-options="{updateOn: 'blur'}"
+           required>
+    <ul class="error"
+         ng-messages="login.form.password.$error"
+         ng-show="login.form.password.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.required.password"></li>
+    </ul>
+  </div>
+
+  <label>
+    <input type="checkbox"
+           value="true"
+           name="rememberMe"
+           ng-model="rememberMe">
+    <span translate="i18n.access.fields.rememberMe"></span>
+  </label>
+
+  <div class="button-bar">
+    <button type="submit"
+            class="btn"
+            ng-disabled="login.form.$invalid"
+            translate="i18n.access.fields.loginBtn"></button>
+  </div>
+
+</form>

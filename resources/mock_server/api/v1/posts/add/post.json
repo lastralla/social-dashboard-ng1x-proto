@@ -1,0 +1,29 @@
+{
+  "postId": "1403",
+  "postType": "text",
+  "status": "draft",
+  "approver": "13",
+  "lastUpdate": "2015-09-21",
+  "scheduleTime": "2015-09-26",
+  "keywords": ["drink pepsi", "pepsi challenge"],
+  "category": "cat 1",
+
+  "content": {
+    "channels": {
+      "facebook": {
+        "body": "Take the Pepsi Challenge"
+      },
+      "twitter": {
+        "body": "take the pepsi challenge"
+      }
+    }
+  },
+
+  "messages": [{
+    "messageId": "12",
+    "name": "System",
+    "status": "unread",
+    "time": "2015-09-21",
+    "body": "Draft post 1403 created"
+  }]
+}

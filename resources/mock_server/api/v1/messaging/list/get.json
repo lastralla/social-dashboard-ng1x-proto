@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "01",
+    "type": "system",
+    "time": "9:12 AM",
+    "isSystemMessage": true,
+    "content": "Message 1",
+    "associations": [{
+      "storyId": "001"
+    }]
+  }, {
+    "_id": "02",
+    "type": "user",
+    "time": "12:54 PM",
+    "isCurrentUser": true,
+    "poster": {
+      "name": "John Doe",
+      "avatar": "http://www.stevensegallery.com/32/32"
+    },
+    "content": "Message 2",
+    "associations": []
+  }, {
+    "_id": "04",
+    "type": "user",
+    "time": "12:56 PM",
+    "isCurrentUser": true,
+    "poster": {
+      "name": "John Doe",
+      "avatar": "http://www.stevensegallery.com/32/32"
+    },
+    "content": "sfddsfs 2",
+    "associations": []
+  }, {
+    "_id": "03",
+    "type": "user",
+    "time": "12:57 PM",
+    "poster": {
+      "name": "Will M.",
+      "avatar": "http://www.fillmurray.com/32/32"
+    },
+    "content": "Message 3",
+    "associations": []
+  }
+]

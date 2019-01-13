@@ -1,0 +1,77 @@
+<h1 translate="i18n.reporting.titles.adsEngagement"></h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2 translate="i18n.reporting.titles.adsEngagementFunnel"></h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['engagementFunnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['engagementFunnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['engagementFunnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['engagementFunnel'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ads Engagement</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['adsEngagement'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['adsEngagement'].charts['bars']"
+                  metric="engagements"></sd-chart>
+        <sd-chart model="$ctrl.views['adsEngagement'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['adsEngagement'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ads Shares &amp; Retweets (Amplifications)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['amplifications'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['amplifications'].charts['bars']"
+                  metric="shares"></sd-chart>
+        <sd-chart model="$ctrl.views['amplifications'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['amplifications'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ad Likes</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['adLikes'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['adLikes'].charts['bars']"
+                  metric="likes"></sd-chart>
+        <sd-chart model="$ctrl.views['adLikes'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['adLikes'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ads Comments &amp; Replies (Conversations)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversations'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversations'].charts['bars']"
+                  metric="comments"></sd-chart>
+        <sd-chart model="$ctrl.views['conversations'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversations'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

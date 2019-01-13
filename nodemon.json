@@ -1,0 +1,13 @@
+{
+  "verbose": true,
+  "watch": [
+    "nodemon.json",
+    "webpack.dev.config.js",
+    "server/",
+    "resources/"
+  ],
+  "ext": "js json",
+  "ignore": [
+    "src/"
+  ]
+}

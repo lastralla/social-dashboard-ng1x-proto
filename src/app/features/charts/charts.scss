@@ -1,0 +1,67 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../common/skin/globalImports";
+
+// ----- NVD3 Styles ------------------------------------ //
+
+// Main
+.nvd3 {
+  text {
+      font: normal $secondary-font-size $heading-font-family;
+      fill: $heading-color;
+  }
+
+  .title {
+      font: bold 14px Arial;
+
+  }
+}
+
+// Axis
+.nvd3 {
+  .nv-axis {
+    path {
+      stroke: $base-line-color-dark;
+    }
+    line {
+      stroke: mix($base-neutral-light-accent, $base-line-color);
+    }
+    .nv-axis .nv-axisMaxMin text {
+      fill: $heading-color;
+    }
+  }
+}
+
+.nvtooltip {
+    padding: $spacing-small;
+    background: rgba($grey-superlight, 0.9);
+    color: $base-font-color;
+    border: $base-border-width solid rgba($base-line-color, 0.9);
+    border-bottom: $base-border-width solid rgba($base-line-color-dark, 0.9);
+    border-radius: $box-radius-small;
+
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+
+    table {
+      margin: 0;
+
+      td {
+        padding: $spacing-tiny 0;
+
+        &.legend-color-guide div {
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 0.8rem;
+          border:  none;
+        }
+
+        &.key {
+          padding: $spacing-tiny $spacing-small
+        }
+      }
+    }
+}
+
+

@@ -1,0 +1,63 @@
+<ul class="app-main-nav">
+  <li class="nav-item">
+    <a class="home-btn"
+         ui-sref="home"
+         ui-sref-active="is-active"
+         title="Dashboard">
+      Dashboard
+      </a>
+  </li>
+
+  <li class="nav-item">
+    <a ui-sref="reporting.community.overview"
+       ng-class="{
+         'is-active': $ctrl.state.includes('reporting.community')
+       }"
+       title="Community">
+      Community
+    </a>
+  </li>
+  <li class="nav-item">
+    <a ui-sref="reporting.engagement.overview"
+       ng-class="{
+         'is-active': $ctrl.state.includes('reporting.engagement')
+       }"
+       title="Engagement">
+      Engagement
+    </a>
+  </li>
+  <li class="nav-item">
+    <a ui-sref="reporting.referral.overview"
+       ng-class="{
+         'is-active': $ctrl.state.includes('reporting.referral')
+       }"
+       title="Referrals">
+    Referral
+    </a>
+  </li>
+  <li class="nav-item">
+    <a ui-sref="reporting.conversion.overview"
+       ng-class="{
+         'is-active': $ctrl.state.includes('reporting.conversion')
+       }"       title="Conversions">
+      Conversions
+    </a>
+  </li>
+<!--   <li ng-repeat="sec in $ctrl.states"
+      class="nav-item">
+    <a ui-sref="{{::sec.name}}"
+       ui-sref-active="{'is-active': sec.parentName}"
+       title="{{ 'i18n.' + sec.data.topLevelNav.label + '.name' | translate }}"
+       translate="i18n.{{::sec.data.topLevelNav.label}}.navLabel">
+    </a>
+  </li> -->
+  <li class="brand-select">
+    <label>Brand:</label>
+    <select ng-model="$ctrl.currentBrand"
+            ng-change="$ctrl.updateBrands()">
+      <option value="01">Doe Inc</option>
+      <option value="02">ACME</option>
+    </select>
+  </li>
+</ul>
+

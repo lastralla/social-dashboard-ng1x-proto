@@ -1,0 +1,16 @@
+<span class="change-direction-ctn"
+      ng-if="$ctrl.value != 0">
+  <span class="trend"
+        ng-class="{
+          'is-better': $ctrl.isBetter && !$ctrl.isWorse,
+          'is-worse': !$ctrl.isBetter && $ctrl.isWorse
+        }">
+    {{$ctrl.value | number:0}}<span class="unit">{{$ctrl.unit}}</span>
+    <i class="fa fa-caret-up"
+       aria-hidden="true"
+       ng-show="$ctrl.value > 0"></i>
+    <i class="fa fa-caret-down"
+       aria-hidden="true"
+       ng-show="$ctrl.value < 0"></i>
+  </span>
+</span>

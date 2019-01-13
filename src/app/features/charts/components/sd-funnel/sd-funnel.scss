@@ -1,0 +1,145 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+// ------------------------------------------------------ //
+.funnel-ctn {
+  position: relative;
+  width: 90rem;
+  height: 24rem;
+  margin: 1rem auto;
+
+  .period-label {
+    text-align: center;
+  }
+
+  .columns {
+    width: 90rem;
+    display: flex;
+    flex-direction: row;
+
+    .col {
+      flex: 7 36rem;
+
+      .row {
+        margin: 1rem auto;
+        height: 4rem;
+
+        &.header {
+          // margin: 0 auto;
+          height: 2rem;
+        }
+      }
+    }
+
+    .labels {
+      flex: 0 0 12.5rem;
+
+      .row {
+        line-height: 4rem;
+        vertical-align: middle;
+      }
+    }
+
+    .period {
+      display: flex;
+      flex-direction: row;
+      padding: 0 1rem;
+
+      .channel {
+        flex: 0 0 19rem;
+
+        .is-disabled {
+          .header {
+            opacity: 0.5;
+          }
+        }
+
+        .facebook {
+          width: 100%;
+          text-align: right;
+
+          .box {
+            background: #3b5999;
+            padding-right: 1rem;
+
+            .value {
+              float: right;
+              text-shadow: -0.1rem -0.1rem 0 #3b5999,
+                           0.1rem -0.1rem 0 #3b5999,
+                           -0.1rem 0.1rem 0 #3b5999,
+                           0.1rem 0.1rem 0 #3b5999;
+              width: 17rem;
+            }
+
+            &.is-0 {
+              background: #ffffff;
+              .value {
+                text-shadow: none;
+              }
+            }
+          }
+          .header {
+            padding-right: 1.5rem;
+            text-align: right;
+          }
+        }
+
+        .twitter {
+          width: 100%;
+
+          .box {
+            background: #5c90cc;
+            padding-left: 1rem;
+
+            .value {
+              float: left;
+              text-shadow: -0.1rem -0.1rem 0 #5c90cc,
+                           0.1rem -0.1rem 0 #5c90cc,
+                           -0.1rem 0.1rem 0 #5c90cc,
+                           0.1rem 0.1rem 0 #5c90cc;
+              width: 17rem;
+            }
+
+            &.is-0 {
+              background: #ffffff;
+              .value {
+                text-shadow: none;
+              }
+            }
+          }
+          .header {
+            padding-left: 1.5rem;
+            text-align: left;
+          }
+        }
+      }
+
+      .row {
+        padding: 0 0.5rem;
+        width: 100%;
+      }
+
+      .box {
+        display: inline-block;
+        height: 4rem;
+        line-height: 4rem;
+        color: #ffffff;
+        font-weight: bold;
+        // transition: width 1s ease-in-out;
+
+        &.is-0 {
+          color: $base-font-color;
+        }
+
+        @for $i from 0 through 100 {
+          &.is-#{$i} {
+            width: calc((#{$i * .85} * 1%) + 2rem); // .85 is 0% value computes to 2rem and 1% is a little bigger (not perfect but whatever)
+          }
+        }
+      }
+    }
+
+  }
+}

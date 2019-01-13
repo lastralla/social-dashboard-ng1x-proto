@@ -1,0 +1,87 @@
+<h1>Organic Engagement</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <header-slot>
+    <div class="report-panel-title">
+      <h2>Insights</h2>
+    </div>
+    <div class="report-overview-layout">
+      <div class="report-overview-zone">
+        <div class="report-section-visualisation">
+          <div class="visualisation-layout two-up">
+            <div class="chart-ctn">
+              <sd-chart model="$ctrl.views['insights'].charts['bars']"
+                        metric="organicEngagements"
+                        size="small"></sd-chart>
+            </div>
+            <div class="chart-ctn">
+              <sd-chart model="$ctrl.views['insights'].charts['table']"
+                        size="big"></sd-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header-slot>
+
+  <main-slot>
+    <h2>Organic Engagement</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['organicEngagements'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['organicEngagements'].charts['bars']"
+                  metric="organicEngagements"></sd-chart>
+        <sd-chart model="$ctrl.views['organicEngagements'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['organicEngagements'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Organic Shares &amp; Retweets (Amplifications)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['amplifications'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['amplifications'].charts['bars']"
+                  metric="organicShares"></sd-chart>
+        <sd-chart model="$ctrl.views['amplifications'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['amplifications'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Organic Likes</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['organicLikes'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['organicLikes'].charts['bars']"
+                  metric="organicLikes"></sd-chart>
+        <sd-chart model="$ctrl.views['organicLikes'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['organicLikes'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Organic Comments &amp; Replies (Conversations)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversations'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversations'].charts['bars']"
+                  metric="organicComments"></sd-chart>
+        <sd-chart model="$ctrl.views['conversations'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversations'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

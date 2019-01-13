@@ -1,0 +1,35 @@
+<h1>Ads Community</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>Community Funnel</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['communityFunnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['communityFunnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['communityFunnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['communityFunnel'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ads Community</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['main'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['main'].charts['bars']"
+                  metric="fans"></sd-chart>
+        <sd-chart model="$ctrl.views['main'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['main'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

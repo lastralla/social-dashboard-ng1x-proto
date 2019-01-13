@@ -1,0 +1,65 @@
+<h1 translate="Sample Report"></h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <header-slot>
+    <div class="report-overview-layout"
+         ng-if="$ctrl.views['insights'].show">
+      <div class="report-special-panel">
+        <div class="report-section-visualisation">
+          <div class="report-panel-title">
+            <h2 translate="i18n.reporting.titles.insight"></h2>
+          </div>
+          <div class="visualisation-layout two-up">
+            <div class="chart-ctn">
+              <sd-chart model="$ctrl.views['insights'].charts['chart1insights']"
+                        metric="gaAdConversion"
+                        size="small"></sd-chart>
+            </div>
+            <div class="chart-ctn">
+              <sd-chart model="$ctrl.views['insights'].charts['chart2insights']"
+                        size="big"></sd-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </header-slot>
+
+  <main-slot>
+    <div ng-if="$ctrl.views['main'].show">
+      <h2 translate="Daily Sentiment"></h2>
+      <div class="report-section-visualisation">
+        <div class="visualisation-layout">
+          <div class="chart-ctn">
+            <sd-chart model="$ctrl.views['main'].charts['chart1main']"
+                      metric="dailySentiment"></sd-chart>
+          </div>
+          <div class="chart-ctn">
+            <sd-chart model="$ctrl.views['main'].charts['chart2main']"></sd-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="$ctrl.views['secondary'].show">
+      <h2 translate="Sales Revenue"></h2>
+      <div class="report-section-visualisation">
+        <div class="visualisation-layout two-up">
+          <div class="chart-ctn">
+            <sd-chart model="$ctrl.views['secondary'].charts['chart1sec']"
+                      metric="salesRevenueValue"
+                      size="small"></sd-chart>
+          </div>
+          <div class="chart-ctn">
+            <sd-chart model="$ctrl.views['secondary'].charts['chart2sec']"
+                      size="big"></sd-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main-slot>
+
+</sd-report-layout>
+

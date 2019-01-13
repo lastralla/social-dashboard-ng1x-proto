@@ -1,0 +1,54 @@
+<div class="period-selector">
+  <div class="selection-diplay-ctn">
+      <div class="selection-diplay">
+        <span class="selected-month"
+               translate="i18n.general.months.{{$ctrl.selectedPeriodLabel}}.full"
+               ng-show="$ctrl.selectedPeriod.breakdown !== 'weekly'"></span>
+        <span class="selected-month"
+               ng-show="$ctrl.selectedPeriod.breakdown === 'weekly'">{{$ctrl.selectedPeriodLabel}}</span>
+        <span class="selected-year">{{$ctrl.selectedYear}}</span>
+        <div>
+          <span class="comparison-label"
+                ng-show="$ctrl.selectedPeriod.breakdown !== 'weekly'">
+            (<span translate="i18n.reporting.dateSelector.comparedTo"></span>
+            <span translate="i18n.general.months.{{$ctrl.comparisonPeriodLabel}}.abbr"></span>)
+          </span>
+          <span class="comparison-label"
+                ng-show="$ctrl.selectedPeriod.breakdown === 'weekly'">
+            (<span translate="i18n.reporting.dateSelector.comparedTo"></span>
+            {{$ctrl.selectedPeriodLabel}})
+          </span>
+        </div>
+      </div>
+      <div class="menu-toggle">
+        <i class="toggle-icon fa fa-chevron-circle-down"
+           aria-hidden="true"
+           ng-class="{'is-active': $ctrl.menuActive}"
+           ng-click="$ctrl.toggleMenu()"></i>
+      </div>
+  </div>
+  <div class="date-picker-menu-ctn"
+       ng-show="$ctrl.menuActive">
+    <div class="form-ctn">
+      <label translate="i18n.reporting.dateSelector.selectMonth"></label>
+      <select class="month"
+              ng-model="$ctrl.newMonth"
+              ng-options="month
+                          as 'i18n.general.months.' + month + '.full' | translate
+                          for month
+                          in $ctrl.months"></select>
+      <label translate="i18n.reporting.dateSelector.selectYear"></label>
+      <select class="year"
+              ng-model="$ctrl.newYear"
+              ng-options="year for year in $ctrl.years"></select>
+    </div>
+    <div class="btn-bar">
+      <button class="secondary-action"
+              ng-click="$ctrl.resetSelection()"
+              translate="i18n.reporting.dateSelector.reset"></button>
+      <button class="primary-action"
+              ng-click="$ctrl.applyDatepickerSelection()"
+              translate="i18n.reporting.dateSelector.apply"></button>
+    </div>
+  </div>
+</div>

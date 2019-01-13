@@ -1,0 +1,115 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Posting Section -------------------------------- //
+// ------------------------------------------------------ //
+
+.posts-create-ctn {}
+
+.posts-list-ctn {
+
+  .post-ctn {
+    margin: $spacing-small 0;
+    border-radius: $box-radius-normal;
+
+    &.draft {
+      border: 0.1rem solid $status-draft;
+
+      .status-ctn {
+        background: $status-draft-muted;
+      }
+    }
+    &.pending {
+      border: 0.1rem solid $status-pending;
+
+      .status-ctn {
+        background: $status-pending-muted;
+      }
+    }
+    &.request {
+      border: 0.1rem solid $status-request;
+
+      .status-ctn {
+        background: $status-request-muted;
+      }
+    }
+    &.scheduled {
+      border: 0.1rem solid $status-scheduled;
+
+      .status-ctn {
+        background: $status-scheduled-muted;
+      }
+    }
+    &.posted {
+      border: 0.1rem solid $status-posted;
+
+      .status-ctn {
+        background: $status-posted-muted;
+      }
+    }
+
+    .post-info {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .post-info {
+    min-height: 4rem;
+    max-height: 4rem;
+
+    .status-ctn,
+    .preview-ctn,
+    .channels-ctn,
+    .messages-ctn {}
+
+    .status-ctn {
+      width: 20rem;
+      padding: 0 $spacing-normal;
+      text-align: center;
+      line-height: 4rem;
+      text-transform: capitalize;
+    }
+
+    .preview-ctn {
+      background: $base-neutral-light;
+      width: 4rem;
+      height: 4rem;
+
+      .post-preview-image {
+        display: block;
+      }
+    }
+
+    .channels-ctn {
+      background: $grey-verylight;
+      height: 100%;
+      padding: 0 $spacing-tiny;
+
+      .channel-icon {
+        display: block;
+        color: #ffffff;
+
+        &.is-active {
+          color: $base-neutral;
+        }
+      }
+    }
+
+    .messages-ctn {
+      width: 30rem;
+
+      // temp (modify directive instead)
+      .message {
+        border: none;
+        padding: 0.2rem $spacing-small;
+      }
+    }
+  }
+
+}
+

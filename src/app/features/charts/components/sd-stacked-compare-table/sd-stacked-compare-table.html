@@ -1,0 +1,89 @@
+<table class="sd-stacked-compare-table"
+       ng-attr-style="width: {{$ctrl.options.width}}">
+  <thead>
+    <tr class="header-row">
+      <th class="label"></th>
+      <th class="metric"
+          ng-repeat="set in $ctrl.sets">
+        <span class="value"
+              translate="{{$ctrl.getLabelKey(set.metricName)}}"></span>
+      </th>
+      <th class="spacer"></th><!-- hack -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="period-row comparison-row">
+      <th class="label">
+        <span translate="i18n.general.months.{{$ctrl.comparisonMonth}}.abbr"></span>
+        <span>{{$ctrl.comparisonMonthYr}}</span>
+      </th>
+      <td class="metric"
+          ng-repeat="set in $ctrl.sets">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.totalValue[1].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.totalValue[1].value)">
+          {{set.totalValue[1].value | number}}
+        </span>
+      </td>
+      <td class="spacer"></td><!-- hack -->
+    </tr>
+
+    <tr class="period-row selected-row">
+      <th class="label">
+        <span translate="i18n.general.months.{{$ctrl.selectedMonth}}.abbr"></span>
+        <span>{{$ctrl.selectedMonthYr}}</span>
+      </th>
+      <td class="metric"
+          ng-repeat="set in $ctrl.sets">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.totalValue[0].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.totalValue[0].value)">
+          {{set.totalValue[0].value | number}}
+        </span>
+      </td>
+      <td class="spacer"></td><!-- hack -->
+    </tr>
+
+    <tr class="change-row">
+      <th class="label"
+          translate="i18n.charts.change"></th>
+      <td class="metric"
+          ng-repeat="set in $ctrl.sets">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.changeValue[0].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.changeValue[0].value)">
+          {{set.changeValue[0].value | number}}
+        </span>
+        <span class="not-available-blank"
+              ng-if="$ctrl.isEmptyValue(set.changePercent[0].value)">
+        </span>
+        <sd-change-direction ng-if="!$ctrl.isEmptyValue(set.changePercent[0].value)"
+                             value="set.changePercent[0].value"
+                             is-better="$ctrl.isBetter(set.changePercent[0].value, set.metricName)"
+                             is-worse="$ctrl.isWorse(set.changePercent[0].value, set.metricName)"
+                             unit="'%'"></sd-change-direction>
+      </td>
+      <td></td><!-- spacer -->
+    </tr>
+
+    <tr class="period-row">
+      <th class="label"></th>
+      <td class="metric"
+          ng-repeat="set in $ctrl.sets">
+        <span class="value">
+          <div ng-bind-html="set.callToAction"></div>
+        </span>
+      </td>
+      <td class="spacer"></td><!-- hack -->
+    </tr>
+  </tbody>
+</table>

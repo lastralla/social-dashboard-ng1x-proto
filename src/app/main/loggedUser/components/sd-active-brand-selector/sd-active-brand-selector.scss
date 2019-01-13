@@ -1,0 +1,27 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- App Layout ------------------------------------- //
+// ------------------------------------------------------ //
+
+.active-brand-selector {
+  display: inline-block;
+  width: 20rem;
+  text-align: left;
+
+  .brand-thumbnail {
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    border-radius: 1.5rem;
+  }
+
+  .brand-select {
+    width: grid-dimension(2, $grid-column-width, $grid-gutter-width);
+    display: inline;
+  }
+}

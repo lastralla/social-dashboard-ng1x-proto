@@ -1,0 +1,39 @@
+<div class="report-layout">
+  <div class="report-section-ctn">
+    <!-- <div>
+      <h3>Pick time period</h3>
+      <button ng-click="$ctrl.getReport(2016, 1)">2016 - February</button>
+      <button ng-click="$ctrl.getReport(2015, 3, 'weekly')">2015 - Week Index 3</button>
+      <button ng-click="$ctrl.getReport(2015, 4, 'weekly')">2015 - Week Index 4</button>
+    </div> -->
+    <div class="report-section-panel period-selector-panel">
+      <sd-period-selector report-ctrl="$ctrl.reportCtrl"></sd-period-selector>
+    </div>
+  </div>
+
+  <div class="report-section-ctn"
+       ng-if="$ctrl.haveData"
+       ng-transclude="headerSlot">
+  </div>
+
+  <div class="report-section-ctn"
+       ng-if="!$ctrl.haveData">
+    <div class="report-section-panel"
+         translate="i18n.reporting.noResults">
+    </div>
+  </div>
+
+  <div class="report-section-ctn"
+       ng-if="$ctrl.haveData && $ctrl.hasFilters">
+    <div class="report-section-filters">
+      <sd-report-filters config="$ctrl.reportConfig">
+        <h4 translate="i18n.reporting.filters.filterBy"></h4>
+      </sd-report-filters>
+    </div>
+  </div>
+
+  <div class="report-section-ctn"
+       ng-if="$ctrl.haveData"
+       ng-transclude="mainSlot">
+  </div>
+</div>

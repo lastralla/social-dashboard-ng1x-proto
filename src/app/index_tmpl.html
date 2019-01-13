@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="sdApp" ng-strict-di> <!-- TODO programatically bootstrap app -->
+<head>
+  <style>
+    .ng-hide {
+      display: none!important;
+    }
+  </style>
+
+  <title ng-bind="pageTitle"></title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+  <base href="/">
+</head>
+<body class="skin-1-ctn"> <!-- TODO put skin in a directive -->
+  <!--[if lt IE 11]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <sd-layout name="currentLayout"></sd-layout>
+
+  <div ng-show="false">
+    <div class="splash-page-ctn">
+      <div class="loading-indicator-ctn">
+        Loading...
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<div class="chart"
+     ng-class="{
+      'size-full': !$ctrl.size || $ctrl.size === 'full',
+      'size-big': $ctrl.size === 'big',
+      'size-small': $ctrl.size === 'small'
+     }">
+  <div ng-if="$ctrl.title">
+    <h3>{{::$ctrl.title}}</h3>
+  </div>
+</div>

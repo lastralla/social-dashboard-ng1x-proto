@@ -1,0 +1,88 @@
+<table class="sortable-table"
+       ng-if="$ctrl.rows.length > 0">
+  <thead>
+    <tr>
+      <th class="media-icon"></th>
+      <th class="media-content">Content</th>
+      <th class="media-channel">
+        <span class="label"
+              translate="i18n.reporting.headings.channel">
+        </span>
+      </th>
+      <th class="metric {{metric}}"
+          ng-repeat="metric in $ctrl.columnOrder"
+          ng-click="$ctrl.selectColumn(metric, true)"
+          ng-class="{
+            'is-active': $ctrl.activeMetric === metric
+          }">
+        <span class="label"
+              translate="{{$ctrl.getLabelKey(metric)}}"></span>
+        </span>
+        <span class="sort-toggle">
+          <i class="fa fa-sort-desc"
+             aria-hidden="true"
+             ng-if="$ctrl.rowDescending[metric] && $ctrl.activeMetric === metric"></i>
+          <i class="fa fa-sort-asc"
+             aria-hidden="true"
+             ng-if="!$ctrl.rowDescending[metric] && $ctrl.activeMetric === metric"></i>
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in $ctrl.rows">
+      <td class="media-icon">
+        <div class="icon-ctn">
+          <img class="icon"
+               src="http://dummyimage.com/40x40/f5f5f5/5c90cc.png&text=%3F"
+               ng-if="$ctrl.isEmptyValue(item.thumbnail)"><!-- TODO replace with proper placeholder image -->
+          <img class="icon"
+               ng-src="{{item.thumbnail}}"
+               ng-if="!$ctrl.isEmptyValue(item.thumbnail)">
+        </div>
+      </td>
+      <td class="media-content">
+        <div class="content-ctn">
+          <span class="content is-not-avail"
+                ng-if="$ctrl.isEmptyValue(item.body)">
+            {{$ctrl.notAvail}}
+          </span>
+          <span class="content"
+                ng-if="!$ctrl.isEmptyValue(item.body)">
+            {{item.body}}
+          </span>
+        </div>
+      </td>
+      <td class="media-channel">
+        <span class="label">
+          <div class="channel-icon facebook"
+               ng-if="item.channel == 'facebook'">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          </div>
+          <div class="channel-icon twitter"
+               ng-if="item.channel == 'twitter'">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </div>
+        </span>
+      </td>
+      <td class="metric {{metric}}"
+          ng-repeat="metric in $ctrl.columnOrder"
+          ng-class="{
+            'is-active': $ctrl.activeMetric === metric
+          }">
+        <span ng-if="$ctrl.isEmptyValue(item.metrics[metric])">
+          {{$ctrl.notAvail}}
+        </span>
+        <span ng-if="!$ctrl.isEmptyValue(item.metrics[metric])">
+          {{item.metrics[metric]}}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="report-section-ctn"
+     ng-if="$ctrl.rows.length === 0">
+  <div class="no-ads-data">
+    There were no ads for this category during this month.
+  </div>
+</div>

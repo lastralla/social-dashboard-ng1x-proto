@@ -1,0 +1,170 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "./globalImports";
+
+
+// ------------------------------------------------------ //
+
+$input-padding-size: $spacing-tiny;
+
+.form-ctn {
+  width: grid-dimension(4, $grid-column-width, $grid-gutter-width);
+  margin: $spacing-normal;
+
+  &.sm {
+    width: grid-dimension(3, $grid-column-width, $grid-gutter-width);
+  }
+
+  &.lg {
+    width: grid-dimension(5, $grid-column-width, $grid-gutter-width);
+  }
+}
+
+.button-bar {
+  margin: $spacing-normal 0;
+}
+
+
+fieldset {
+  border: $base-border;
+  border-radius: $box-radius-small;
+  margin: $spacing-normal 0 $spacing-small;
+  padding: $spacing-small;
+
+  legend {
+    @extend %secondary-font;
+
+    margin: 0 0 $spacing-tiny $spacing-tiny;
+    padding: 0 $spacing-tiny;
+    color: $heading-color;
+  }
+}
+
+label,
+input,
+select,
+textarea {
+  display: block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+
+}
+
+label {
+  @extend %secondary-font;
+
+  margin: $label-spacing-top 0 $label-spacing-bottom $box-radius-normal;
+  font-weight: 500;
+  color: $heading-color;
+
+  .form-ctn &:first-child {
+    margin-top: 0;
+  }
+}
+
+:focus,
+input[type="file"]:focus {
+    border-color: $state-active;
+    outline: none;
+}
+
+input,
+select,
+textarea {
+  margin: 0;
+  width: 100%;
+  padding: $input-padding-size;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  border: .1rem solid $base-line-color;
+  border: $base-border;
+  border-radius: $box-radius-normal;
+  background: #ffffff;
+
+  &:disabled {
+    background: #fafafa;
+    color: lighten($base-font-color, 35%);
+    cursor: not-allowed;
+
+    &:hover {
+      border-color: inherit;
+    }
+  }
+
+  &:hover {
+    border-color: mix($base-line-color, $state-active, 70%);
+  }
+
+  &:focus {
+    border: .1rem solid $state-active;
+    outline: none;
+  }
+
+  &[type="file"] {
+    padding: 0 0 0 0;
+    border: none;
+  }
+
+  &[type="date"] {
+    padding-right: 0;
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    width: auto;
+    display: inline-block;
+    line-height: $base-line-height;
+    margin: 0 $spacing-small 0 $spacing-tiny;
+    padding: 0.2rem 0;
+    border: none;
+  }
+
+  &[type="file"] {
+    width: auto;
+    cursor: pointer;
+    font-size: $secondary-font-size;
+
+    &:hover {
+      background: #fafafa;
+    }
+  }
+
+  &[type="file"]::-webkit-file-upload-button {
+    height: 100%;
+    background-color: $state-active;
+    border-radius: $box-radius-normal;
+    border: none;
+    color: #ffffff;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+select,
+input {
+  // height: ($base-line-height * $line-height-scale) + (2 * $input-padding-size);
+}
+
+form .has-error {
+  label {
+    color: $error-color;
+  }
+  input {
+    border-color: $error-color;
+  }
+  .error {
+    @extend %secondary-font;
+
+    margin: $spacing-tiny $spacing-tiny $spacing-tiny $box-radius-normal;
+    color: $error-color;
+  }
+}

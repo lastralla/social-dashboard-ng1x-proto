@@ -1,0 +1,20 @@
+<div class="report-filter-ctn">
+  <!-- <div ng-transclude></div> --> <!-- makes filter display more compact until there's a need for showing multiple types of filters -->
+  <div class="btn-bar">
+    <button class="special-action"
+            ng-class="{
+              'is-active': $ctrl.filter.activeState === ''
+            }"
+            ng-click="$ctrl.applyFilter($ctrl.name, '')"
+            translate="i18n.reporting.filters.all">
+    </button>
+    <button class="special-action"
+            ng-repeat="state in $ctrl.filter.availableStates"
+            ng-class="{
+              'is-active': $ctrl.filter.activeState === state.dataKey
+            }"
+            ng-click="$ctrl.applyFilter($ctrl.name, state.dataKey)">
+      {{::state.label}}
+    </button>
+  </div>
+</div>

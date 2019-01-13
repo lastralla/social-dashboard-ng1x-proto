@@ -1,0 +1,9 @@
+<div class="active-brand-selector"
+     ng-if="$ctrl.activeBrand">
+  <img class="brand-thumbnail"
+       ng-src="{{$ctrl.thumbnail}}">
+  <select class="brand-select"
+          ng-options="brand for brand in $ctrl.brands"
+          ng-model="$ctrl.activeBrand">
+  </select>
+</div>

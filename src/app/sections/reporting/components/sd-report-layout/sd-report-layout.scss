@@ -1,0 +1,279 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Local Variables and Mixins --------------------- //
+// ------------------------------------------------------ //
+$reporting-box-margin: 0 auto $spacing-normal 0;
+$compensated-spacing-small: $spacing-small - $base-border-width;
+$compensated-spacing-normal: $spacing-normal - $base-border-width;
+
+%reporting-content-panel {
+  @extend %generic-content-panel-border;
+  @include heading-spacing-adjuster();
+}
+
+
+// ------------------------------------------------------ //
+// ----- Report Layout ---------------------------------- //
+// ------------------------------------------------------ //
+
+/*
+ * Report layout markup structure:
+ *
+ *   <div class="report-layout">
+ *     <div class="report-section-ctn">
+ *       <div class="report-section-panel period-selector-panel">
+ *         ...
+ *       </div>
+ *     </div>
+ *     <div class="report-section-ctn">
+ *       <div class="report-filters-ctn">
+ *         ...
+ *         <div class="filter-list">
+ *           <div class="filter-bar-ctn">
+ *             ...
+ *           </div>
+ *         </div>
+ *       </div>
+ *     </div>
+ *     <div class="report-section-ctn">
+ *       <div class="report-section-visualisation">
+ *         <div class="visualisation-layout">
+ *           ...
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ */
+.report-layout {
+  margin-top: -1 * ($h1-line-height + $h1-margin-bottom);
+
+  .report-section-ctn {
+    margin: 0;
+    clear: both;
+
+    h2 {
+      margin-top: $spacing-large;
+      padding-left: $base-border-width;
+    }
+
+    .report-section-panel {
+      @extend %reporting-content-panel;
+      margin: $reporting-box-margin;
+    }
+
+    .report-section-filters {
+      @extend %reporting-content-panel;
+      background: $base-neutral-verylight;
+      margin: $reporting-box-margin;
+    }
+
+    .report-section-visualisation {
+      @extend %reporting-content-panel;
+      margin: $reporting-box-margin;
+    }
+
+    .report-section-table-panel {
+      @extend %reporting-content-panel;
+      margin: $reporting-box-margin;
+      padding: 0 0 0 0;
+
+      .sortable-table {
+        margin: 0 0 0 0;
+      }
+    }
+  }
+
+  .report-section-panel {
+    padding: $spacing-small $spacing-normal;
+    min-height: 30rem;
+
+    &.period-selector-panel {
+      float: right;
+      width: grid-dimension(4, $grid-column-width, $grid-gutter-width);
+      min-height: auto;
+      padding: 0 $spacing-normal;
+    }
+  }
+
+  .report-section-filters {
+    padding: $compensated-spacing-normal $compensated-spacing-normal;
+  }
+
+  .report-section-visualisation {
+    .no-daily-breakdown {
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .visualisation-layout {
+      overflow: hidden;
+
+      .chart-ctn {
+        // TODO this block still used?
+        &:nth-of-type(2) {
+          background: lighten($base-neutral-superlight, 2%);
+
+          // compensate for border
+          .chart {
+            margin-left: -0.1rem;
+          }
+        }
+      }
+
+      &.two-up {
+        display: flex;
+
+        .chart-ctn {
+          width: 24rem;
+
+          &:nth-of-type(2) {
+            width: grid-dimension(9, $grid-column-width, $grid-gutter-width);
+            border-left: 0.1rem solid #f1f1f1;
+          }
+        }
+      }
+    }
+
+    &.no-data {
+      padding: 2rem;
+      min-height: 8rem;
+    }
+  }
+
+  .report-panel-title {
+    h2 {
+      margin: 0 0 0 0;
+      padding: $compensated-spacing-small $compensated-spacing-normal;
+    }
+  }
+
+  .report-special-panel,
+  .report-facebook-panel,
+  .report-twitter-panel,
+  .report-ga-panel {
+    .report-panel-title {
+      h2 {
+        color: #ffffff;
+      }
+    }
+  }
+  /* Specific Panels */
+  .report-special-panel {
+    $mixed-channels-color: mix($facebook-color, $twitter-color);
+
+    .report-section-visualisation {
+      border: 0.1rem solid mix($base-line-color-dark, $mixed-channels-color, 60%);
+    }
+
+    .report-panel-title {
+      background: $mixed-channels-color;
+      border-bottom: 0.1rem solid mix($base-line-color-dark, $mixed-channels-color, 60%);
+    }
+  }
+
+  .report-facebook-panel {
+    .report-panel-title {
+      background: lighten($facebook-color, 5%);
+      border-bottom: $facebook-color;
+    }
+  }
+
+  .report-twitter-panel {
+    .report-panel-title {
+      background: lighten($twitter-color, 2%);
+      border-bottom: $twitter-color;
+    }
+  }
+
+  .report-ga-panel {
+    .report-section-visualisation {
+      border: 0.1rem solid mix($base-line-color-dark, $ga-color, 70%);
+    }
+
+    .report-panel-title {
+      background: lighten($ga-color, 3%);
+      border-bottom: 0.1rem solid $ga-color;
+    }
+  }
+}
+
+.report-overview-layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 $spacing-normal;
+
+  .report-overview-zone {
+    flex: 1 1 100%;
+    display: flex;
+
+    .report-special-panel,
+    .report-facebook-panel,
+    .report-twitter-panel,
+    .report-ga-panel {
+      flex: 1 1 100%;
+
+      .report-section-visualisation {
+        margin: 0 0 0 0;
+        height: 100%;
+        box-shadow: none;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    .no-data {
+      padding: 2rem;
+      min-height: 8rem;
+    }
+  }
+
+  hr {
+    flex: 1 1 100%;
+    margin: 0 0;
+  }
+
+  &.even-distribution {
+    .report-overview-zone {
+      flex: 0 0 calc(50% - #{$spacing-small});
+      margin: 0 $spacing-small 0 0;
+
+      &:nth-of-type(2n) {
+        margin: 0 0 0 $spacing-small;
+      }
+    }
+  }
+
+  &.primary-secondary {
+    .report-overview-zone {
+      flex: 0 0 calc(50% - #{$spacing-small});
+      margin: 0 $spacing-small 0 0;
+
+      &.primary-zone {
+        flex-basis: grid-dimension(8, $grid-column-width, $grid-gutter-width);
+      }
+
+      &.secondary-zone {
+        flex-basis: grid-dimension(4, $grid-column-width, $grid-gutter-width);
+      }
+
+      &:nth-of-type(2n) {
+        margin: 0 0 0 $spacing-small;
+      }
+
+      &:nth-of-type(2n):not(.secondary-zone) { // helps improve display when some panels not shown
+        margin: 0 $spacing-normal 0 0;
+        color: #00aa11;
+      }
+
+      &:nth-of-type(2n + 1) {
+        margin: 0 $spacing-small 0 0 ;
+      }
+    }
+
+  }
+}

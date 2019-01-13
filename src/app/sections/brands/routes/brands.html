@@ -1,0 +1,20 @@
+<h3>
+    <span translate="i18n.brands.ACCOUNT_BRAND_TITLE"></span><span translate="i18n.general.COLON_SEP"></span>
+</h3>
+<div ng-repeat="brand in vm.brands">
+  {{::brand.name}}
+</div>
+<h3>
+    <span translate="i18n.brands.ACTIVE_ACCOUNT_TITLE"></span><span translate="i18n.general.COLON_SEP"></span>
+</h3>
+<div>
+  <strong>Name:</strong> {{vm.activeBrand.name}}
+</div>
+<div>
+  <strong><span translate="i18n.brands.CHANNELS_TITLE"></span><span translate="i18n.general.COLON_SEP"></span></strong>
+  <div ng-repeat="(key, obj) in vm.activeBrand.channels">
+    <span><strong>Name:</strong> {{key}}</span> |
+    <span><strong>Handle:</strong> {{obj.handle}}</span> |
+    <span><strong>URL:</strong> {{obj.url}}</span>
+  </div>
+</div>

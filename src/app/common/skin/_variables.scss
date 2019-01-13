@@ -1,0 +1,145 @@
+// ---------- Responsive ---------- //
+$scale-factor: 1.2;
+$line-height-scale: 1.4;
+$rem-scale: 1.4;
+
+@function roundRems($remNumber) {
+  @return round($remNumber * 10) / 10;
+}
+
+// ---------- Base Typography ---------- //
+$base-font-family: "Helvetica Neue", Helvetica, sans-serif;
+$heading-font-family: Verdana, Geneva, sans-serif;
+
+$base-font-size: 1rem * $rem-scale;
+$base-line-height: roundRems($base-font-size * $line-height-scale);
+
+$secondary-font-size: roundRems($base-font-size / $scale-factor);
+$secondary-line-height: roundRems($base-line-height / $scale-factor);
+
+
+// ---------- Heading Size Variables ---------- //
+$h1-font-size: roundRems($base-font-size * $scale-factor * $scale-factor * $scale-factor);
+$h1-line-height: roundRems($h1-font-size * $scale-factor);
+$h1-margin-top: roundRems($base-line-height * $rem-scale);
+$h1-margin-bottom: $base-line-height;
+
+$h2-font-size: roundRems($base-font-size * $scale-factor * $scale-factor);
+$h2-line-height: roundRems($h2-font-size * $scale-factor);
+$h2-margin-top: $base-line-height;
+$h2-margin-bottom: $base-line-height;
+
+$h3-font-size: roundRems($base-font-size * $scale-factor);
+$h3-line-height: roundRems($h3-font-size * $scale-factor);
+$h3-margin-top: $base-line-height;
+$h3-margin-bottom: $base-line-height;
+
+$h4-font-size: $base-font-size;
+$h4-line-height: $base-line-height;
+$h4-margin-top: $base-line-height;
+$h4-margin-bottom: $base-line-height;
+
+$h5-font-size: $base-font-size;
+$h5-line-height: $base-line-height;
+$h5-margin-top: $base-line-height;
+$h5-margin-bottom: $base-line-height;
+
+$h6-font-size: $base-font-size;
+$h6-line-height: $base-line-height;
+$h6-margin-top: $base-line-height;
+$h6-margin-bottom: $base-line-height;
+
+
+// ---------- Grid System ---------- //
+$grid-column-width: 6rem;
+$grid-gutter-width: $base-line-height;
+$grid-columns: 12;
+
+
+// ---------- Element Spacing ---------- //
+$spacing-large: roundRems($base-line-height * $rem-scale);
+$spacing-normal: $grid-gutter-width;      // This is the master spacing from which everything is based
+$spacing-small: roundRems($grid-gutter-width / 2);
+$spacing-tiny: roundRems($grid-gutter-width / 4);
+
+
+// ---------- Named Colors ---------- //
+// (these should not be used outside of this file)
+$brand-green: #1db5ac;      // 029, 181, 172
+$light-blue: #eaf2fd;
+
+$grey-verydark: #3e3e3e;    // 062, 062, 062
+$grey-dark: #5f5f5f;        // 095, 095, 095
+$grey-mid: #9b9b9b;         // 155, 155, 155
+$grey-light: #b9b9b9;       // 185, 185, 185
+$grey-verylight: #d7d7d7;   // 215, 215, 215
+$grey-superlight: #f5f5f5;  // 245, 245, 245
+
+
+// ---------- Colors by Use ---------- //
+$brand-primary: $brand-green;
+$action-color: $brand-primary;
+$action-color-lighter: lighten($action-color, 10%);
+$action-color-darker: darken($action-color, 5%);
+
+$state-active: $action-color-darker;
+$state-inactive: desaturate($action-color, 100%);
+$state-disabled: lighten($state-inactive, 25%);
+
+$base-bg-color: #ffffff;
+$base-font-color: $grey-verydark;
+$heading-color: $grey-dark;
+
+$link-color: $state-inactive;
+$link-color-active: darken($link-color, 20%);
+$link-color-hover: darken($link-color, 15%);
+$link-color-visited: $link-color;
+
+$base-neutral: $grey-mid;
+$base-neutral-light: $grey-light;
+$base-neutral-light-50: rgba($grey-light, .5);
+$base-neutral-verylight: lighten($grey-verylight, 10%);
+$base-neutral-superlight: $grey-superlight;
+$base-neutral-light-accent: $light-blue;
+
+$base-line-color: mix($grey-light, $grey-verylight);
+$base-line-color-dark: mix($grey-mid, $grey-light);
+
+$icon-color: $grey-dark;
+$icon-color-active: $grey-verydark;
+
+$facebook-color: #3b5999;
+$twitter-color: #5c90cc;
+$ga-color: #ef6c00;
+
+$error-color: #cc0000;
+
+
+// ---------- Form Element Sizes ---------- //
+$label-spacing-top: $spacing-small;
+$label-spacing-bottom: $spacing-tiny;
+
+
+// ---------- Misc ---------- //
+$box-radius-large: $spacing-small;
+$box-radius-normal: $spacing-tiny;
+$box-radius-small: 0.2rem;
+
+$base-z-index: 0;
+
+$base-border-width: 0.1rem;
+$base-border: $base-border-width solid $base-line-color;
+$base-box-shadow: 0 0.2rem 0.4rem $base-neutral-light-50;
+
+
+// ---------- Commented out features ---------- //
+$status-draft: #5eb3ec;
+$status-draft-muted: #b7e0f4;
+$status-pending: #f3e261;
+$status-pending-muted: #fff9c0;
+$status-request: #ee665f;
+$status-request-muted: #ffc3c0;
+$status-scheduled: #4abab2;
+$status-scheduled-muted: #a7dfde;
+$status-posted: $grey-light;
+$status-posted-muted: $grey-verylight;

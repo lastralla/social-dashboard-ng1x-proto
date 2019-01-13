@@ -1,0 +1,35 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Access ----------------------------------------- //
+// ------------------------------------------------------ //
+
+.access-pg-ctn {
+  display: flex;
+
+  .layout-content-ctn {
+    flex: 1 1 50%;
+  }
+
+  .layout-separator {
+    position: relative;
+    flex: 0 0 3rem;
+    margin-right: 3rem;
+    border-right: 0.1rem solid $base-line-color-dark;
+
+      span {
+        position: absolute;
+        right: -50%;
+        width: 100%;
+        margin-top: 8rem;
+        padding: $spacing-normal 0;
+        text-align: center;
+        background-color: $base-bg-color;
+        color: $base-neutral;
+      }
+  }
+}

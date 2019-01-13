@@ -1,0 +1,84 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "./globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Common Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "normalize";
+@import "base";
+@import "typography";
+@import "buttons";
+@import "forms";
+@import "tables";
+@import "lists";
+@import "contentLayouts";
+
+
+// ------------------------------------------------------ //
+// ----- Common Styles ---------------------------------- //
+// ------------------------------------------------------ //
+
+.toggle-icon {
+  color: $icon-color;
+  cursor: pointer;
+
+  &.is-active {
+    color: $icon-color-active;
+  }
+}
+
+.splash-page-ctn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .loading-indicator-ctn {
+    width: 20rem;
+    padding: $spacing-normal;
+    text-align: center;
+    border-radius: $box-radius-normal;
+    background: $base-neutral-light;
+  }
+}
+
+.media-ctn {
+  display: flex;
+
+  > .media-image {
+    flex: 0 0 3.2rem;
+    margin-right: $spacing-small;
+    -webkit-clip-path: circle(1.6rem at 1.6rem 1.6rem);
+
+    img {
+      width: 3.2rem;
+    }
+  }
+
+  > .media-content {
+    flex: 1 1 auto;
+  }
+}
+
+.pageMessagesCtn {
+  padding: 1rem;
+  background: rgba(200, 0, 0, 0.1);
+  border-radius: $box-radius-normal;
+
+  &.has-error {
+    border: 0.1rem solid $error-color;
+    color: $error-color;
+  }
+}
+
+.generic-panel-ctn {
+  @extend %generic-content-panel-border;
+  @include heading-spacing-adjuster();
+
+  min-height: 25rem;
+  margin: 0 0 $spacing-small 0;
+  padding: $spacing-normal;
+}

@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "color-hex-length": "long",
+    "color-hex-case": "lower",
+    "color-no-invalid-hex": true,
+    "color-no-named": true,
+    "declaration-colon-space-after": "always",
+    "declaration-block-semicolon-newline-before": "never-multi-line",
+    "declaration-block-semicolon-space-before": "never",
+    "max-empty-lines": 3,
+    "max-line-length": 100,
+    "selector-combinator-space-after": "always",
+    "media-feature-range-operator-space-before": "always",
+    "unit-whitelist": ["vh", "%", "em", "rem", "deg", "s", "px"]
+  }
+}

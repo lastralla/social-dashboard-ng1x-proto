@@ -1,0 +1,32 @@
+.content-layout-ctn {
+  &.split-layout {
+    display: flex;
+
+    .layout-content-ctn {
+      flex: 1 1 50%;
+      margin: $spacing-normal $spacing-small $spacing-normal 0;
+      padding: $spacing-small;
+
+      &:nth-of-type(2) {
+        margin: $spacing-normal 0 $spacing-normal $spacing-small;
+      }
+    }
+  }
+
+  &.form-layout {
+    display: flex;
+
+    .layout-content-ctn {
+      flex: 1 1 60%;
+      margin: $spacing-normal $spacing-small $spacing-normal 0;
+      padding: $spacing-small;
+
+      &:nth-of-type(2) {
+        flex-basis: 40%;
+
+        margin: $spacing-normal 0 $spacing-normal $spacing-small;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,69 @@
+<table class="sd-compare-table"
+       ng-attr-style="width: {{$ctrl.options.width}}">
+  <thead>
+    <tr>
+      <th class="metric-name">
+      </th>
+      <th class="comparison-period">
+        <span translate="i18n.general.months.{{$ctrl.comparisonMonth}}.abbr"></span>
+        <span>{{$ctrl.comparisonMonthYr}}</span>
+      </th>
+      <th class="selected-period">
+        <span translate="i18n.general.months.{{$ctrl.selectedMonth}}.abbr"></span>
+        <span>{{$ctrl.selectedMonthYr}}</span>
+      </th>
+      <th class="change" translate="i18n.charts.change"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="set in $ctrl.sets">
+
+      <th class="metric-name">
+        <span class="value"
+              translate="{{$ctrl.getLabelKey(set.metricName)}}"></span>
+      </th>
+
+      <td class="comparison-period">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.totalValue[1].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.totalValue[1].value)">
+          {{set.totalValue[1].value | number}}
+        </span>
+      </td>
+
+      <td class="selected-period">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.totalValue[0].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.totalValue[0].value)">
+          {{set.totalValue[0].value | number}}
+        </span>
+      </td>
+
+      <td class="change">
+        <span class="value"
+              ng-if="$ctrl.isEmptyValue(set.changeValue[0].value)">
+          {{$ctrl.notAvail}}
+        </span>
+        <span class="value"
+              ng-if="!$ctrl.isEmptyValue(set.changeValue[0].value)">
+          {{set.changeValue[0].value | number}}
+        </span>
+        <span class="not-available-blank"
+              ng-if="$ctrl.isEmptyValue(set.changePercent[0].value)">
+        </span>
+        <sd-change-direction ng-if="!$ctrl.isEmptyValue(set.changePercent[0].value)"
+                             value="set.changePercent[0].value"
+                             is-better="$ctrl.isBetter(set.changePercent[0].value, set.metricName)"
+                             is-worse="$ctrl.isWorse(set.changePercent[0].value, set.metricName)"
+                             unit="'%'"></sd-change-direction>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

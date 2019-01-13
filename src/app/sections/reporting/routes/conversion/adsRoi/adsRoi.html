@@ -1,0 +1,50 @@
+<h1>Ads Return of Investement   (ROI)</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>ROI</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['roi'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['roi'].charts['bars']"
+                  metric="roi"></sd-chart>
+        <sd-chart model="$ctrl.views['roi'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['roi'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Profit</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['profit'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['profit'].charts['bars']"
+                  metric="profit"></sd-chart>
+        <sd-chart model="$ctrl.views['profit'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['profit'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Costs</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['cost'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['cost'].charts['bars']"
+                  metric="cost"></sd-chart>
+        <sd-chart model="$ctrl.views['cost'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['cost'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

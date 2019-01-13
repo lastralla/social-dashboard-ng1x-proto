@@ -1,0 +1,51 @@
+$heading-background-color: mix($base-neutral-verylight, $base-neutral-light-accent, 90%);
+
+table {
+  border-collapse: collapse;
+  margin: $spacing-normal 0;
+  table-layout: fixed;
+}
+
+th {
+  font-weight: 500;
+  padding: $spacing-small 0;
+  text-align: left;
+  color: $heading-color;
+}
+
+thead {
+  th {
+    background: $heading-background-color;
+    border-bottom: $base-border-width solid $base-line-color;
+  }
+}
+
+th,
+td {
+  padding: $spacing-tiny $spacing-small;
+  vertical-align: middle;
+}
+
+tbody tr {
+  th,
+  td {
+    border-top: 0.1rem solid mix($base-line-color, $heading-background-color);
+
+    &:first-child {
+      border-top-left-radius: $box-radius-small;
+      border-bottom-left-radius: $box-radius-small;
+    }
+
+    &:last-child {
+      border-top-right-radius: $box-radius-small;
+      border-bottom-right-radius: $box-radius-small;
+    }
+  }
+
+  &:first-child {
+    th,
+    td {
+      border-top: none;
+    }
+  }
+}

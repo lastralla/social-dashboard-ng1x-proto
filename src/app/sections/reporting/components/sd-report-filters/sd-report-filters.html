@@ -1,0 +1,18 @@
+<div class="report-filters-ctn">
+  <!-- <div ng-transclude></div> --> <!-- makes filter display more compact until there's a need for showing multiple types of filters -->
+  <div class="filter-list">
+    <div class="filter-bar-ctn"
+         ng-repeat="(key, filter) in $ctrl.filters">
+      <sd-report-filter name="key"
+                        filter="filter"
+                        ng-if="filter.availableStates.length > 1">
+        <!-- <h4 translate="i18n.reporting.filters.{{::filter.label}}"></h4> --> <!-- makes filter display more compact until there's a need for showing multiple types of filters -->
+      </sd-report-filter>
+      <div ng-if="filter.availableStates.length <= 1">
+        <h4 translate="i18n.reporting.filters.{{::filter.label}}"></h4>
+        <span class="no-filters-label"
+              translate="i18n.reporting.filters.noFiltersAvailable"></span>
+      </div>
+    </div>
+  </div>
+</div>

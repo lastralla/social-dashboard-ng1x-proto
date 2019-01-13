@@ -1,0 +1,52 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../skin/globalImports";
+
+// ------------------------------------------------------ //
+
+.app-main-nav {
+  display: flex;
+
+  .nav-item {
+    margin: 0 $spacing-normal;
+
+    &:first-of-type {
+      margin-left:  $spacing-small;
+    }
+
+    $border-active: 0.3rem;
+    a {
+      display: block;
+      padding: 0 $spacing-small $spacing-tiny;
+      border-bottom: $border-active solid $base-bg-color;
+    }
+
+    a.is-active {
+      color: $state-active;
+      border-bottom: $border-active solid $state-active;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .brand-select {
+    flex: 1 1 30rem;
+    text-align: right;
+    justify-content: flex-end;
+    padding-right: $spacing-normal;
+
+    label {
+      margin: 0 0 0 0;
+      display: inline-block;
+    }
+
+    select {
+      width: 15rem;
+      display: inline-block;
+    }
+  }
+
+}

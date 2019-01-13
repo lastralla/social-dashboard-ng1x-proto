@@ -1,0 +1,63 @@
+<h1>Google Analytics Conversions (GA)</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>GA Web Conversions Funnel (via Social Referral)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['webConversionsFunnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['webConversionsFunnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['webConversionsFunnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['webConversionsFunnel'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+
+    <h2>Conversions from Session via Social Referral (SSR)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversionSSR'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversionSSR'].charts['bars']"
+                  metric="GAReferralConversionVolume"></sd-chart>
+        <sd-chart model="$ctrl.views['conversionSSR'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversionSSR'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+
+    <h2>Session via Social Referral (SSR)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['sessionSSR'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['sessionSSR'].charts['bars']"
+                  metric="GAReferralSessions"></sd-chart>
+        <sd-chart model="$ctrl.views['sessionSSR'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['sessionSSR'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+
+    <h2>Conversion Value</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['conversionValue'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['conversionValue'].charts['bars']"
+                  metric="GAReferralConversionValue"></sd-chart>
+        <sd-chart model="$ctrl.views['conversionValue'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['conversionValue'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

@@ -1,0 +1,131 @@
+<div class="pageMessagesCtn has-error"
+     ng-show="reg.loginAttempted && reg.error">
+  <ul>
+    <li ng-show="reg.error"
+        translate="i18n.errors.{{reg.error.message}}">
+    </li>
+  </ul>
+</div>
+
+<form name="reg.form"
+      ng-submit="reg.doRegister(reg.form)"
+      novalidate>
+
+  <div ng-class="{
+         'has-error': (reg.form.firstName.$error.required || reg.form.firstName.$error.minlength)
+                       && reg.form.firstName.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.firstName"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="text"
+           name="firstName"
+           ng-model="firstName"
+           ng-model-options="{updateOn: 'blur'}"
+           ng-minlength="2"
+           required>
+    <ul class="error"
+        ng-messages="reg.form.firstName.$error"
+        ng-show="reg.form.firstName.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.required.fName"></li>
+      <li ng-message="minlength"
+          translate="i18n.access.validations.short.name"></li>
+    </ul>
+  </div>
+
+  <div ng-class="{
+         'has-error': (reg.form.lastName.$error.required || reg.form.lastName.$error.minlength)
+                       && reg.form.lastName.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.lastName"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="text"
+           name="lastName"
+           ng-model="lastName"
+           ng-model-options="{updateOn: 'blur'}"
+           ng-minlength="2"
+           required>
+    <ul class="error"
+        ng-messages="reg.form.lastName.$error"
+        ng-show="reg.form.lastName.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.required.lName"></li>
+      <li ng-message="minlength"
+          translate="i18n.access.validations.short.name"></li>
+    </ul>
+  </div>
+
+  <div ng-class="{
+         'has-error': (reg.form.email.$error.required || reg.form.email.$error.email)
+                       && reg.form.email.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.email"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="email"
+           name="email"
+           ng-model="email"
+           ng-model-options="{updateOn: 'blur'}"
+           required>
+    <ul class="error"
+        ng-messages="reg.form.email.$error"
+        ng-show="reg.form.email.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.required.email"></li>
+      <li ng-message="email"
+          translate="i18n.access.validations.valid.email"></li>
+    </ul>
+  </div>
+
+  <div ng-class="{
+         'has-error': reg.form.password.$error.required && reg.form.password.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.password"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="password"
+           name="password"
+           ng-model="password"
+           ng-model-options="{updateOn: 'blur'}"
+           required>
+    <ul class="error"
+        ng-messages="reg.form.password.$error"
+        ng-show="reg.form.password.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.required.password"></li>
+    </ul>
+  </div>
+
+  <div ng-class="{
+         'has-error': (reg.form.confirmPassword.$error.required || reg.form.confirmPassword.$error.compareToModel)
+                       && reg.form.confirmPassword.$touched
+       }">
+    <label>
+      <span translate="i18n.access.fields.confirmPassword"></span><span translate="i18n.general.COLON_SEP">
+    </label>
+    <input type="password"
+           name="confirmPassword"
+           ng-model="confirmPassword"
+           ng-model-options="{updateOn: 'blur'}"
+           sd-compare-to-model="password"
+           required>
+    <ul class="error"
+        ng-messages="reg.form.confirmPassword.$error"
+        ng-show="reg.form.confirmPassword.$touched">
+      <li ng-message="required"
+          translate="i18n.access.validations.confirm.password"></li>
+      <li ng-message="compareToModel"
+          translate="i18n.access.validations.match.password"></li>
+    </ul>
+  </div>
+
+  <div class="button-bar">
+    <button type="submit"
+            class="btn"
+            ng-disabled="reg.form.$invalid"
+            translate="i18n.access.fields.registerBtn"></button>
+  </div>
+
+</form>

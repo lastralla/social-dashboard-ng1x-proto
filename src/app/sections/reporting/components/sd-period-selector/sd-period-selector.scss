@@ -1,0 +1,79 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Period Selector Menu --------------------------- //
+// ------------------------------------------------------ //
+$period-selector-box-height: 2 * $base-line-height;
+
+.period-selector {
+  margin: $spacing-tiny 0;
+  height: $period-selector-box-height;
+
+  position: relative;
+
+  .selection-diplay-ctn {
+    display: flex;
+
+    .selection-diplay {
+      flex: 1;
+    }
+
+    .menu-toggle {
+      flex: 0 0 $h2-line-height;
+    }
+  }
+
+  .date-picker-menu-ctn {
+    position: absolute;
+    z-index: 1;
+    top: $period-selector-box-height + $spacing-tiny - $box-radius-small; // height + margins
+    right: -1 * ($spacing-normal + $base-border-width);
+  }
+}
+
+.selection-diplay-ctn {
+  .selection-diplay {
+    .selected-month,
+    .selected-year {
+      font-weight: 500;
+    }
+
+    .comparison-label {
+      @extend %secondary-font;
+    }
+  }
+
+  .menu-toggle {
+    line-height: $period-selector-box-height;
+    font-size: $h2-font-size;
+    text-align: right;
+  }
+}
+
+.date-picker-menu-ctn {
+  width: grid-dimension(4, $grid-column-width, $grid-gutter-width) + $grid-gutter-width;
+  padding: $spacing-normal;
+
+  border: $base-border;
+  border-color: rgba($base-line-color-dark, 0.95);
+  border-radius: $box-radius-small;
+
+  background-color: rgba($base-bg-color, 0.95);
+  box-shadow: $base-box-shadow;
+
+  .form-ctn {
+    @include box-margin-adjuster($spacing-normal, $spacing-normal, 0);
+  }
+
+  .year {
+    width: 50%;
+  }
+
+  .month {
+    width: 75%;
+  }
+}

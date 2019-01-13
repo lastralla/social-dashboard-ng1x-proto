@@ -1,0 +1,134 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+// ------------------------------------------------------ //
+.sd-compare-table {
+  margin: 0;
+
+  thead {
+    word-break: break-word;
+
+    .comparison-period,
+    .selected-period {
+      text-align: center;
+    }
+
+    .change {
+      padding-right: 1.5rem + $spacing-small;
+    }
+  }
+
+  .metric-name,
+  .comparison-period,
+  .selected-period,
+  .change {
+    .value {
+      display: inline-block;
+    }
+  }
+
+  /* Full Size (default) */
+  .metric-name {
+    width: grid-dimension(4, $grid-column-width, $grid-gutter-width) - (2 * $spacing-normal);
+
+    .value {
+      min-width: 10rem;
+    }
+  }
+
+  .comparison-period,
+  .selected-period {
+    width: grid-dimension(3, $grid-column-width, $grid-gutter-width);
+
+    .value {
+      min-width: 12rem;
+      text-align: right;
+    }
+  }
+
+  thead .selected-period,
+  .selected-period .value {
+    color: $base-font-color;
+    font-weight: 500;
+  }
+
+  .change {
+    width: grid-dimension(2, $grid-column-width, $grid-gutter-width);
+    text-align: right;
+
+    .value {
+      text-align: right;
+    }
+
+    .not-available-blank {
+      display: inline-block;
+      width: 1.5rem;
+    }
+  }
+
+  /* Full Width (.chart.size-full) */
+  .size-full & {
+    background-color: #fafafa; // temp, move elsewhere
+
+    .metric-name {
+      padding-left: $spacing-normal - $base-border-width;
+    }
+  }
+
+  /* Big Size (.chart.size-big) */
+  .size-big & {
+    .metric-name {
+      width: grid-dimension(3, $grid-column-width, $grid-gutter-width) - (2 * $spacing-normal);
+    }
+
+    .comparison-period,
+    .selected-period {
+      width: grid-dimension(2, $grid-column-width, $grid-gutter-width);
+      text-align: right;
+    }
+
+    .change {
+      width: grid-dimension(2, $grid-column-width, $grid-gutter-width);
+    }
+  }
+
+  /* Big Size (.chart.size-small) */
+  .size-small & {
+    width: 45.8rem;
+    margin: 0 auto;
+
+    .metric-name {
+      width: 14.8rem;
+      margin: 0 auto;
+    }
+
+    .comparison-period,
+    .selected-period {
+      width: 10.5rem;
+    }
+
+    .change {
+      width: 10rem;
+    }
+
+  }
+}
+
+.chart.size-small .sd-compare-table {
+  thead,
+  tbody {
+    .comparison-period,
+    .selected-period {
+      text-align: right;
+      .value {
+        min-width: 8.5rem;
+      }
+    }
+
+    .change {
+      padding-right: 1.5rem + 0.5rem;
+    }
+  }
+}

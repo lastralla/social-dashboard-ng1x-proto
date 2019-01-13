@@ -1,0 +1,36 @@
+{
+  "userID": "c6a06b49-3ba3-4fc4-bc09-aefe39b5eb82",
+  "loginInfo": {
+    "providerID": "facebook",
+    "providerKey": "10156155143235607"
+  },
+  "firstName": "John",
+  "lastName": "Doe",
+  "fullName": "John Doe",
+  "avatarURL": "http://www.fillmurray.com/160/160",
+  "activeBrand": "01",
+  "brands": {
+    "01": {
+      "name": "Doe Inc",
+      "thumbnail": "http://dummyimage.com/30x30/cca3a1/111111.png&text=+ACME+",
+      "timezone": -5,
+      "channels": [
+        "facebook",
+        "twitter"
+      ],
+      "integrations": [
+        "ga"
+      ]
+    },
+    "02": {
+      "name": "ACME",
+      "thumbnail": "http://dummyimage.com/30x30/cca3a1/111111.png&text=+ACME+",
+      "timezone": -5,
+      "channels": [
+        "facebook",
+        "twitter"
+      ],
+      "integrations": []
+    }
+  }
+}

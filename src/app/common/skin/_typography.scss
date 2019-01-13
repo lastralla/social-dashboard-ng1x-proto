@@ -1,0 +1,88 @@
+// ---------- Typography ---------- //
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 400;
+  color: $base-font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  color: $heading-color;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  margin-top: $h1-margin-top;
+  margin-bottom: $h1-margin-bottom;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  margin-top: $h2-margin-top;
+  margin-bottom: $h2-margin-bottom;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  margin-top: $h3-margin-top;
+  margin-bottom: $h3-margin-bottom;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+  margin-top: $h4-margin-top;
+  margin-bottom: $h4-margin-bottom;
+}
+
+h5,
+h6 {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  margin: $spacing-small 0;
+}
+
+p {
+  margin: $spacing-normal 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 0.1s linear;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    color: $link-color-active;
+    outline: none;
+  }
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+
+    nav & {
+      text-decoration: none;
+    }
+  }
+  &:visited {
+    color: $link-color-visited;
+  }
+}

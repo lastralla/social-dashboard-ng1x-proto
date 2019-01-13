@@ -1,0 +1,41 @@
+<div class="app-layout-ctn">
+
+  <!-- Top Bar -->
+  <header class="app-header">
+    <div class="top-bar-ctn">
+      <div class="branding-ctn">
+        <div class="site-logo-ctn">
+          <img src="//via.placeholder.com/238x40.png?text=Social+Dashboard">
+        </div>
+      </div>
+      <nav class="profile-nav-ctn">
+        <!-- <span class="icon-nav">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </span> -->
+        <sd-logout-cta></sd-logout-cta>
+      </nav>
+    </div>
+
+    <div class="top-level-nav-ctn">
+      <!-- Navigation -->
+      <nav class="app-main-nav-ctn">
+        <sd-app-main-nav>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content-ctn">
+    <nav class="second-level-nav-ctn" ui-view="subNavigation"></nav>
+
+    <!-- Content -->
+    <section class="content-area-ctn">
+      <div class="content-ctn" ui-view></div>
+
+      <footer class="content-footer-ctn">
+        <span translate="i18n.general.copyright"></span>
+      </footer>
+    </section>
+  </div>
+
+</div>

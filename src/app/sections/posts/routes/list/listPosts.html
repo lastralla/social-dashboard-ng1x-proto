@@ -1,0 +1,37 @@
+<h1>POSTS</h1>
+
+<button ui-sref="createPost">New</button>
+
+<ul class="posts-list-ctn">
+  <li class="post-ctn"
+      id="post-{{post.postId}}"
+      ng-repeat="post in vm.posts"
+      ng-class="post.status">
+    <div class="post-info">
+      <div class="status-ctn">
+        {{post.status}}
+      </div>
+      <div class="preview-ctn">
+        <img class="post-preview-image"
+             ng-src="{{post.content.previewImage}}">
+      </div>
+      <div class="channels-ctn">
+        <span class="channel-icon"
+              ng-class="{
+                'is-active': post.appliedChannels.facebook
+              }">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        </span>
+        <span class="channel-icon"
+              ng-class="{
+                'is-active': post.appliedChannels.twitter
+              }">
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="messages-ctn">
+        <!--sd-message message="{{post.messages | latestMessage}}"></sd-message-->
+      </div>
+    </div>
+  </li>
+</ul>

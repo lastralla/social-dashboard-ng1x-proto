@@ -1,0 +1,70 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Reporting Navigation Sidebar ------------------- //
+// ------------------------------------------------------ //
+
+.reporting-nav {
+
+  .active-brand-selector-ctn {
+    margin: 0 0 $spacing-normal -1rem;
+  }
+
+  .reporting-topics {
+
+    a:not([href]) {
+      cursor: text;
+    }
+
+    .report-topic-item {
+      margin: 0 0 $spacing-normal;
+
+      .topic-icon {
+        width: $spacing-normal;
+      }
+
+      .report-topic-sub-list {
+        margin: $spacing-small 0 $spacing-small ($spacing-normal + 0.6rem);
+
+        .report-topic-sub-item {}
+      }
+    }
+  }
+
+  .reporting-topics .report-topic-sub-list {
+    .report-topic-sub-item {
+      @extend %secondary-font;
+
+      margin: $spacing-small 0;
+
+      .item-link {
+        &:visited {
+          color: $link-color;
+        }
+        &:hover {
+          color: $link-color-hover;
+        }
+
+        &.is-active {
+          font-weight: bold;
+          color: $action-color-darker;
+        }
+
+      }
+
+      &.not-available .item-link {
+        opacity: 0.7;
+        cursor: not-allowed;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+    }
+  }
+
+}

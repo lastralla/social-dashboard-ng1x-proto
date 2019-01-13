@@ -1,0 +1,122 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+// ------------------------------------------------------ //
+.sd-stacked-compare-table {
+  margin: 0;
+
+  thead {
+    word-break: break-word;
+
+    .comparison-period,
+    .selected-period {
+      text-align: center;
+    }
+
+    .change {
+      padding-right: 1.5rem + $spacing-small;
+    }
+
+    .metric {
+      .value {
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  // default sizes (.chart.full-size)
+  .header-row,
+  .change-row,
+  .period-row {
+    .label {
+      width: 20rem;
+    }
+
+    .metric {
+      min-width: 17rem;
+      max-width: 22rem;
+
+      .value {
+        width: 15rem;
+        text-align: right;
+        display: inline-block;
+      }
+    }
+
+    .spacer {
+      min-width: 0.1rem;
+    }
+  }
+
+  .change-row {
+    font-size: $secondary-font-size;
+    line-height: $secondary-line-height;
+
+    .label {
+      font-weight: normal;
+      vertical-align: top;
+    }
+    .change-direction-ctn {
+      display: inline-block;
+      width: 15rem;
+      text-align: right;
+    }
+  }
+
+  tbody {
+    .metric {
+      .value {
+        padding-right: 1.5rem;
+      }
+    }
+  }
+
+  .change-row,
+  .period-row {
+    th, td {
+      padding: 1rem;
+    }
+
+    &.selected-row {
+      line-height: $h2-line-height;
+
+      .metric {
+        font-size: $h2-font-size;
+      }
+    }
+
+    &.comparison-row {}
+
+    .btn,
+    .btn:hover {
+      color: $action-color;
+      border-color: $action-color;
+    }
+  }
+
+  /* Big Size (.chart.size-big) */
+  .size-big & {
+    // not yet implemented
+  }
+
+  /* Small Size (.chart.size-small) */
+  .size-small & {
+    .header-row,
+    .change-row,
+    .period-row {
+      .label {}
+
+      .metric {
+        text-align: right;
+      }
+
+      .spacer {
+        min-width: 0;
+        width: 0;
+      }
+    }
+  }
+
+}

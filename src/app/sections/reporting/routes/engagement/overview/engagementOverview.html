@@ -1,0 +1,49 @@
+<h1>Engagement Overview</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig"
+                  report-type="overview">
+
+  <header-slot>
+    <div class="report-panel-title">
+      <h2>General</h2>
+    </div>
+    <div class="report-overview-layout even-distribution">
+      <div class="report-overview-zone">
+        <div class="report-special-panel">
+          <div class="report-section-visualisation">
+            <div class="report-panel-title">
+              <h2>Social Media (SM)</h2>
+            </div>
+            <div class="visualisation-layout">
+              <div ng-if="$ctrl.views['top'].show">
+                <sd-chart model="$ctrl.views['top'].charts['table']"
+                          size="full"></sd-chart>
+              </div>
+              <div class="no-data"
+                   ng-if="!$ctrl.views['top'].show">
+                <p translate="i18n.reporting.dataUnavailable"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header-slot>
+
+  <main-slot>
+    <div class="report-panel-title">
+      <h2 translate="i18n.reporting.titles.bestAds"></h2>
+    </div>
+    <div class="report-section-table-panel"
+         ng-if="$ctrl.views['bestAds'].show">
+      <sd-chart model="$ctrl.views['bestAds'].charts['table']"></sd-chart>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['bestAds'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

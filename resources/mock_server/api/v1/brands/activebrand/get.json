@@ -1,0 +1,32 @@
+{
+  "_id": "03",
+  "name": "Pepsi-Cola",
+  "channels": {
+    "facebook": {
+      "handle": "pepsi",
+      "url": "https://www.facebook.com/pepsi",
+      "firstPeriod": {
+        "breakdown": "monthly",
+        "year": 2015,
+        "index": 10,
+        "complete": true
+      }
+    },
+    "twitter": {
+      "handle": "pepsi",
+      "url": "https://twitter.com/pepsi",
+      "firstPeriod": {
+        "breakdown": "monthly",
+        "year": 2015,
+        "index": 9,
+        "complete": true
+      },
+      "lastPeriod": {
+        "breakdown": "monthly",
+        "year": 2016,
+        "index": 2,
+        "complete": true
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+
+.report-filters-ctn {
+  display: flex;
+
+  .filter-list {
+    flex: 1;
+    margin-left: $spacing-small;
+  }
+
+  .no-filters-label {
+    font-style: italic;
+  }
+
+}

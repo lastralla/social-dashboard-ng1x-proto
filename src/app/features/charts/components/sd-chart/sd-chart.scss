@@ -1,0 +1,26 @@
+// ------------------------------------------------------ //
+// ----- Global Imports --------------------------------- //
+// ------------------------------------------------------ //
+@import "../../../../common/skin/globalImports";
+
+
+// ------------------------------------------------------ //
+// ----- Chart Container -------------------------------- //
+// ------------------------------------------------------ //
+.chart {
+  word-break: break-all;
+
+  &.size-full { // default size
+    // width: grid-dimension(12, $grid-column-width, $grid-gutter-width) - (2 * $spacing-normal);
+    // margin: $spacing-normal 0 0;
+    overflow: hidden;
+  }
+
+  &.size-big {
+    width: grid-dimension(9, $grid-column-width, $grid-gutter-width) - $spacing-normal;
+  }
+
+  &.size-small {
+    width: grid-dimension(3, $grid-column-width, $grid-gutter-width) - $spacing-normal;
+  }
+}

@@ -1,0 +1,49 @@
+<h1>Ad Website Clicks</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>Ad Website Clicks Funnel</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['funnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['funnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['funnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['funnel'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Ad Website Clicks</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['clicks'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['clicks'].charts['bars']"
+                  metric="linkClicks"></sd-chart>
+        <sd-chart model="$ctrl.views['clicks'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['clicks'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+
+    <h2>Costs</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['costs'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['costs'].charts['bars']"
+                  metric="cost"></sd-chart>
+        <sd-chart model="$ctrl.views['costs'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['costs'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>

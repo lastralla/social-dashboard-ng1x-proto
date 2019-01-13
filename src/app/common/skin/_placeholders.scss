@@ -1,0 +1,17 @@
+%secondary-font {
+  font-size: $secondary-font-size;
+  line-height: $secondary-line-height;
+}
+
+%generic-content-panel-border {
+  border-radius: $box-radius-small;
+  border: $base-border;
+  background: $base-bg-color;
+  box-shadow: $base-box-shadow;
+}
+
+%top-bar-label {
+  @extend %secondary-font;
+
+  padding: 0 $spacing-small 0 0;
+}

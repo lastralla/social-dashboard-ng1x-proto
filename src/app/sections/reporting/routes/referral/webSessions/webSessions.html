@@ -1,0 +1,49 @@
+<h1>GA Web Sessions</h1>
+
+<sd-report-layout report-ctrl="$ctrl"
+                  report-config="$ctrl.reportConfig">
+
+  <main-slot>
+    <h2>Web Sessions Funnel via Social Referral</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['webSessionFunnel'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['webSessionFunnel'].charts['funnel']"></sd-chart>
+        <sd-chart model="$ctrl.views['webSessionFunnel'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['webSessionFunnel'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+
+    <h2>Sessions via Social Referral (SSR)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['ssr'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['ssr'].charts['bars']"
+                  metric="GAReferralConversionVolume"></sd-chart>
+        <sd-chart model="$ctrl.views['ssr'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['ssr'].show">
+      <p translate="i18n.reporting.linkGaCTA"></p>
+    </div>
+
+    <h2>Paid Website Clicks (PWC)</h2>
+    <div class="report-section-visualisation"
+         ng-if="$ctrl.views['pwc'].show">
+      <div class="chart-ctn">
+        <sd-chart model="$ctrl.views['pwc'].charts['bars']"
+                  metric="clicks"></sd-chart>
+        <sd-chart model="$ctrl.views['pwc'].charts['table']"></sd-chart>
+      </div>
+    </div>
+    <div class="report-section-visualisation no-data"
+         ng-if="!$ctrl.views['pwc'].show">
+      <p translate="i18n.reporting.dataUnavailable"></p>
+    </div>
+  </main-slot>
+
+</sd-report-layout>
